@@ -1,0 +1,20 @@
+onboarding = false
+
+[theme]
+name = "rose-pine"
+auto_switch = false
+
+[ui.toast]
+delivery = "herdr"
+
+[ui]
+show_agent_labels_on_pane_borders = false
+
+[keys]
+# Bind 'Open worktree...' (e.g., Ctrl+B then Shift+O)
+open_worktree = "prefix+shift+o"
+
+# Bind 'Delete worktree checkout...' (e.g., Ctrl+B then Alt+D)
+remove_worktree = "prefix+alt+d"
+
+switch_workspace = "prefix+alt+1..9"
