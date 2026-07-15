@@ -14,7 +14,7 @@ config.initial_cols = 180
 config.initial_rows = 41
 
 -- Automatically boot straight into Herdr inside WSL Ubuntu
-config.default_prog = { "wsl.exe", "-d", "Ubuntu", "-e", "herdr" }
+config.default_prog = { "wsl.exe", "-d", "Ubuntu", "/home/alex/.local/bin/herdr" }
 
 -- Kept empty so WezTerm lets Herdr handle all your splits and tabs
 config.keys = {}
