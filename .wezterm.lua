@@ -1,7 +1,7 @@
 ﻿local wezterm = require("wezterm")
-
 local config = wezterm.config_builder()
 
+-- Your aesthetic setups
 config.color_scheme = "rose-pine-moon"
 config.font = wezterm.font("JetBrains Mono", { weight = 'Bold' })
 config.font_size = 15.0
@@ -13,30 +13,10 @@ config.window_decorations = "RESIZE"
 config.initial_cols = 180
 config.initial_rows = 41
 
-config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
+-- Automatically boot straight into Herdr inside WSL Ubuntu
+config.default_prog = { "wsl.exe", "-d", "Ubuntu", "-e", "herdr" }
 
-config.keys = {
-  { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = '\\', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-
-  { key = 'h', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },
-  { key = 'j', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Down' },
-  { key = 'k', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Up' },
-  { key = 'l', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Right' },
-
-  { key = 't', mods = 'CTRL|SHIFT', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
-  { key = 'w', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentPane { confirm = true } },
-}
-
-local wsl_domains = wezterm.default_wsl_domains()
-
-for _, domain in ipairs(wsl_domains) do
-  if domain.name == "WSL:Ubuntu" then
-    domain.default_cwd = "/home/alex/github"
-  end
-end
-
-config.wsl_domains = wsl_domains
-config.default_domain = "WSL:Ubuntu"
+-- Kept empty so WezTerm lets Herdr handle all your splits and tabs
+config.keys = {}
 
 return config
