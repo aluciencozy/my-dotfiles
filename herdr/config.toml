@@ -5,7 +5,7 @@ name = "rose-pine"
 auto_switch = false
 
 [ui.toast]
-delivery = "herdr"
+delivery = "system"
 
 [ui]
 show_agent_labels_on_pane_borders = false
@@ -16,3 +16,6 @@ remove_worktree = "prefix+alt+d"
 switch_workspace = "prefix+alt+1..9"
 switch_tab = ""
 focus_agent = "prefix+1..9"
+
+[experimental]
+pane_history = false
