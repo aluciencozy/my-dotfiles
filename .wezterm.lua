@@ -18,11 +18,6 @@ config.default_prog = {
   "/home/alex/.local/bin/herdr",
 }
 
-wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
-end)
-
 config.keys = {}
 
 config.bypass_mouse_reporting_modifiers = "ALT"
