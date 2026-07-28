@@ -1,24 +1,41 @@
-﻿local wezterm = require("wezterm")
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "rose-pine-moon"
+-- config.color_scheme = "rose-pine-moon"
+config.color_scheme = "Nord (Gogh)"
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
-config.font_size = 15.0
+config.font_size = 12
 
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.80
-config.win32_system_backdrop = "Acrylic"
+config.background = {
+  {
+    source = {
+      File = "C:\\Users\\Alex Lucien Cosentin\\Pictures\\mac-bg.jpg",
+    },
 
-config.default_prog = {
-  "wsl.exe",
-  "-d",
-  "Ubuntu",
-  "/home/alex/.local/bin/herdr",
+    width = "100%",
+    height = "100%",
+
+    horizontal_align = "Center",
+    vertical_align = "Middle",
+
+    repeat_x = "NoRepeat",
+    repeat_y = "NoRepeat",
+
+    opacity = 0.5,
+
+    hsb = {
+      brightness = 0.1,
+      saturation = 0.8,
+    },
+
+    attachment = {
+      Parallax = 0.0,
+    },
+  },
 }
-
-config.keys = {}
 
 config.bypass_mouse_reporting_modifiers = "ALT"
 
@@ -28,6 +45,14 @@ config.mouse_bindings = {
     mods = "NONE",
     action = wezterm.action.StartWindowDrag,
   },
+}
+
+config.default_prog = {
+  "wsl.exe",
+  "-d",
+  "Ubuntu",
+  "--cd",
+  "/home/alex/github",
 }
 
 return config
