@@ -3,6 +3,10 @@ local o = vim.opt
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Change this value to set the permanent default theme.
+-- NVIM_THEME can override it for a single launch.
+vim.g.dotfiles_theme = 'rose-pine-moon'
+
 o.number = true
 o.relativenumber = true
 o.mouse = 'a'

@@ -1,3 +1,12 @@
+local selected = vim.env.NVIM_THEME or vim.g.dotfiles_theme or 'rose-pine-moon'
+local lualine_themes = {
+  ['rose-pine'] = 'rose-pine',
+  ['rose-pine-moon'] = 'rose-pine',
+  tokyonight = 'tokyonight',
+  ['catppuccin-mocha'] = 'catppuccin',
+  nord = 'nord',
+}
+
 return {
   {
     'folke/which-key.nvim',
@@ -9,10 +18,9 @@ return {
     event = 'VeryLazy',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = function()
-      local theme = vim.env.NVIM_THEME == 'tokyonight' and 'tokyonight' or 'rose-pine'
       return {
         options = {
-          theme = theme,
+          theme = lualine_themes[selected] or 'rose-pine',
           component_separators = '',
           section_separators = '',
           globalstatus = true,

@@ -78,25 +78,50 @@ Treesitter uses its stable `master` branch because this machine has Neovim 0.11.
 
 ## Theme switching
 
-Rose Pine Moon is the default:
+Rose Pine Moon is the permanent default. The setting is in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
 
-```bash
-nvim
+```lua
+vim.g.dotfiles_theme = 'rose-pine-moon'
 ```
 
-Use TokyoNight for one launch:
+Change that value to one of these supported themes:
+
+```text
+rose-pine-moon
+tokyonight
+catppuccin-mocha
+nord
+```
+
+All four theme plugins are loaded, so these commands switch themes immediately for the current Neovim session:
+
+```vim
+:colorscheme rose-pine-moon
+:colorscheme tokyonight
+:colorscheme catppuccin-mocha
+:colorscheme nord
+```
+
+`:colorscheme` changes only the current session. To make a choice permanent, edit `vim.g.dotfiles_theme` in `vim_config.lua`. Environment variables are optional shortcuts that override the Lua default for one launch:
 
 ```bash
 NVIM_THEME=tokyonight nvim
+NVIM_THEME=catppuccin-mocha nvim
 ```
 
-To make TokyoNight permanent for your shell, add this to `~/.zshrc` or export it before opening Neovim:
+Set `NVIM_TRANSPARENT=1` for a transparent background during one launch. Add `export NVIM_TRANSPARENT=1` to [home/.zshrc](/home/alex/github/my-dotfiles/home/.zshrc) if you want transparency in every shell.
 
-```bash
-export NVIM_THEME=tokyonight
+If a newly added theme is not installed yet, run `:Lazy sync` once.
+
+## Starship theme
+
+Starship is now using a Rose Pine Moon palette. Its active palette is one line in [starship.toml](/home/alex/github/my-dotfiles/home/.config/starship.toml):
+
+```toml
+palette = "rose_pine_moon"
 ```
 
-The supported values are `rose-pine` and `tokyonight`. If the selected theme is not installed yet, run `:Lazy sync` once. Set `NVIM_TRANSPARENT=1` to enable transparent theme backgrounds.
+Change it to `palette = "nord"` to switch back to the included Nord palette. Restart the shell with `exec zsh` after changing it.
 
 ## Neovim keybindings
 

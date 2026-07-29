@@ -18,7 +18,8 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = "nord"
+# Change this one line to "nord" to use the alternate palette below.
+palette = "rose_pine_moon"
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -86,7 +87,7 @@ format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [docker_context]
 symbol = ' '
-style = 'fg:#06969A'
+style = 'fg:foam'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
@@ -102,6 +103,19 @@ min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
 
+[palettes.rose_pine_moon]
+dark_blue = '#3E8FB0'
+blue = '#9CCFD8'
+teal = '#9CCFD8'
+red = '#EB6F92'
+orange = '#EA9A97'
+green = '#3E8FB0'
+yellow = '#F6C177'
+purple = '#C4A7E7'
+gray = '#6E6A86'
+black = '#232136'
+white = '#E0DEF4'
+
 [palettes.nord]
 dark_blue = '#5E81AC'
 blue = '#81A1C1'
@@ -113,4 +127,4 @@ yellow = '#EBCB8B'
 purple = '#B48EAD'
 gray = '#434C5E'
 black = '#2E3440'
-white='#E7E7E7'
+white = '#E7E7E7'
