@@ -109,7 +109,7 @@ NVIM_THEME=tokyonight nvim
 NVIM_THEME=catppuccin-mocha nvim
 ```
 
-For a permanent transparent background, set this in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
+Neovim now uses a transparent background by default. The setting is in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
 
 ```lua
 vim.g.dotfiles_transparent = true
