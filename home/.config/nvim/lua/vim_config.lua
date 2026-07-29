@@ -9,7 +9,7 @@ vim.g.dotfiles_theme = 'rose-pine-moon'
 
 -- Set this to true for a permanent transparent Neovim background.
 -- NVIM_TRANSPARENT=1 or NVIM_TRANSPARENT=0 can override it for one launch.
-vim.g.dotfiles_transparent = false
+vim.g.dotfiles_transparent = true
 
 o.number = true
 o.relativenumber = true
