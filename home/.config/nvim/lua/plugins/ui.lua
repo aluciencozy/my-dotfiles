@@ -12,7 +12,7 @@ return {
     'folke/which-key.nvim',
     lazy = false,
     opts = {
-      delay = 200,
+      delay = 0,
       spec = {
         { '<leader>s', group = 'Search' },
         { '<leader>t', group = 'Tabs and hints' },
