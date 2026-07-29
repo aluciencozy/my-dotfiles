@@ -1,32 +1,58 @@
 ﻿local wezterm = require("wezterm")
-
 local config = wezterm.config_builder()
 
-config.default_domain = 'WSL:Ubuntu'
 config.color_scheme = "rose-pine-moon"
-config.font = wezterm.font("JetBrains Mono", { weight = 'Bold' })
-config.font_size = 15.0
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 50
+-- config.color_scheme = "Nord (Gogh)"
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
+config.font_size = 12
+
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
-config.initial_cols = 180
-config.initial_rows = 41
+config.background = {
+	{
+		source = {
+			File = "C:\\Users\\aluci\\OneDrive\\Pictures\\mac-bg.jpg",
+		},
 
-config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
+		width = "100%",
+		height = "100%",
 
-config.keys = {
-  { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = '\\', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+		horizontal_align = "Center",
+		vertical_align = "Middle",
 
-  { key = 'h', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },
-  { key = 'j', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Down' },
-  { key = 'k', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Up' },
-  { key = 'l', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Right' },
+		repeat_x = "NoRepeat",
+		repeat_y = "NoRepeat",
 
-  { key = 't', mods = 'CTRL|SHIFT', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
-  { key = 'w', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentPane { confirm = true } },
+		opacity = 0.85,
+
+		hsb = {
+			brightness = 0.2,
+			saturation = 0.85,
+		},
+
+		attachment = {
+			Parallax = 0.0,
+		},
+	},
+}
+
+config.bypass_mouse_reporting_modifiers = "ALT"
+
+config.mouse_bindings = {
+	{
+		event = { Drag = { streak = 1, button = "Left" } },
+		mods = "NONE",
+		action = wezterm.action.StartWindowDrag,
+	},
+}
+
+config.default_prog = {
+	"wsl.exe",
+	"-d",
+	"Ubuntu",
+	"--cd",
+	"/home/alex/github",
 }
 
 return config
