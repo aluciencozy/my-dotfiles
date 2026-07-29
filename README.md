@@ -78,7 +78,7 @@ Treesitter uses its stable `master` branch because this machine has Neovim 0.11.
 
 ## Theme switching
 
-Rose Pine Moon is the permanent default. The setting is in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
+Rose Pine Moon is the permanent default. The repository setting is in [vim_config.lua](home/.config/nvim/lua/vim_config.lua). After installation, the same file is available at `~/.config/nvim/lua/vim_config.lua`:
 
 ```lua
 vim.g.dotfiles_theme = 'rose-pine-moon'
@@ -109,7 +109,7 @@ NVIM_THEME=tokyonight nvim
 NVIM_THEME=catppuccin-mocha nvim
 ```
 
-Neovim now uses a transparent background by default. The setting is in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
+Neovim now uses a transparent background by default. The repository setting is in [vim_config.lua](home/.config/nvim/lua/vim_config.lua), and the installed path is `~/.config/nvim/lua/vim_config.lua`:
 
 ```lua
 vim.g.dotfiles_transparent = true
@@ -121,7 +121,7 @@ If a newly added theme is not installed yet, run `:Lazy sync` once.
 
 ## Starship theme
 
-Starship is now using a Rose Pine Moon palette. Its active palette is one line in [starship.toml](/home/alex/github/my-dotfiles/home/.config/starship.toml):
+Starship is now using a Rose Pine Moon palette. Its active palette is one line in [starship.toml](home/.config/starship.toml), or `~/.config/starship.toml` after installation:
 
 ```toml
 palette = "rose_pine_moon"
