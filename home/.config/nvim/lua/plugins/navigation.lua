@@ -2,7 +2,10 @@ return {
   {
     'stevearc/oil.nvim',
     opts = { view_options = { show_hidden = true } },
-    keys = { { '<leader>e', '<cmd>Oil<cr>', desc = 'File Browser' } },
+    keys = {
+      { '-', '<cmd>Oil<cr>', desc = 'File browser' },
+      { '<leader>e', '<cmd>Oil<cr>', desc = 'File browser' },
+    },
   },
   {
     'folke/snacks.nvim',
@@ -14,11 +17,16 @@ return {
       input = { enabled = true },
     },
     keys = {
-      { '<leader>f', function() Snacks.picker.files() end, desc = 'Find Files' },
-      { '<leader>s', function() Snacks.picker.grep() end,  desc = 'Search Text' },
-      { '<leader>b', function() Snacks.picker.buffers() end, desc = 'Buffers' },
-      { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
+      { '<leader>sf', function() Snacks.picker.files() end, desc = 'Find files' },
+      { '<leader>sg', function() Snacks.picker.grep() end, desc = 'Search text' },
+      { '<leader>sw', function() Snacks.picker.grep_word() end, desc = 'Search word' },
+      { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help tags' },
+      { '<leader>sb', function() Snacks.picker.buffers() end, desc = 'Buffers' },
+      { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = 'Diagnostics' },
+      { '<leader>sr', function() Snacks.picker.resume() end, desc = 'Resume picker' },
+      { '<leader>so', function() Snacks.picker.recent() end, desc = 'Recent files' },
+      { '<leader>/', function() Snacks.picker.lines() end, desc = 'Search open buffer' },
+      { '<leader><tab>', function() Snacks.picker.buffers() end, desc = 'Switch buffer' },
     },
   },
 }
-
