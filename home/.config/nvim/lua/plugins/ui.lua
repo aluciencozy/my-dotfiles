@@ -11,7 +11,15 @@ return {
   {
     'folke/which-key.nvim',
     lazy = false,
-    opts = { delay = 3000 },
+    opts = {
+      delay = 200,
+      spec = {
+        { '<leader>s', group = 'Search' },
+        { '<leader>t', group = 'Tabs and hints' },
+        { '<leader>w', group = 'Workspace' },
+        { '<leader>l', group = 'LSP and formatting' },
+      },
+    },
   },
   {
     'nvim-lualine/lualine.nvim',

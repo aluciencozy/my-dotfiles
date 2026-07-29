@@ -7,6 +7,10 @@ vim.g.maplocalleader = ' '
 -- NVIM_THEME can override it for a single launch.
 vim.g.dotfiles_theme = 'rose-pine-moon'
 
+-- Set this to true for a permanent transparent Neovim background.
+-- NVIM_TRANSPARENT=1 or NVIM_TRANSPARENT=0 can override it for one launch.
+vim.g.dotfiles_transparent = false
+
 o.number = true
 o.relativenumber = true
 o.mouse = 'a'

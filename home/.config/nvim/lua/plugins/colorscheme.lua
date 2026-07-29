@@ -12,7 +12,10 @@ if not supported[selected] then
   selected = 'rose-pine-moon'
 end
 
-local transparent = vim.env.NVIM_TRANSPARENT == '1'
+local transparent = vim.g.dotfiles_transparent == true
+if vim.env.NVIM_TRANSPARENT ~= nil then
+  transparent = vim.env.NVIM_TRANSPARENT == '1'
+end
 local rose_pine_selected = selected == 'rose-pine' or selected == 'rose-pine-moon'
 
 return {

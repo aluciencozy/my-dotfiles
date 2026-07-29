@@ -109,7 +109,13 @@ NVIM_THEME=tokyonight nvim
 NVIM_THEME=catppuccin-mocha nvim
 ```
 
-Set `NVIM_TRANSPARENT=1` for a transparent background during one launch. Add `export NVIM_TRANSPARENT=1` to [home/.zshrc](/home/alex/github/my-dotfiles/home/.zshrc) if you want transparency in every shell.
+For a permanent transparent background, set this in [vim_config.lua](/home/alex/github/my-dotfiles/home/.config/nvim/lua/vim_config.lua):
+
+```lua
+vim.g.dotfiles_transparent = true
+```
+
+For one launch only, use `NVIM_TRANSPARENT=1 nvim`. Use `NVIM_TRANSPARENT=0 nvim` to override the permanent setting for one launch.
 
 If a newly added theme is not installed yet, run `:Lazy sync` once.
 
@@ -121,7 +127,7 @@ Starship is now using a Rose Pine Moon palette. Its active palette is one line i
 palette = "rose_pine_moon"
 ```
 
-Change it to `palette = "nord"` to switch back to the included Nord palette. Restart the shell with `exec zsh` after changing it.
+Change it to `palette = "nord"` to switch back to the included Nord palette. The prompt uses separate Rose Pine roles for directory, Git, language, and status colors instead of mapping most sections to blue. Restart the shell with `exec zsh` after changing it.
 
 ## Neovim keybindings
 
