@@ -129,6 +129,16 @@ palette = "rose_pine_moon"
 
 Change it to `palette = "nord"` to switch back to the included Nord palette. The prompt uses separate Rose Pine roles for directory, Git, language, and status colors instead of mapping most sections to blue. Restart the shell with `exec zsh` after changing it.
 
+## Herdr theme
+
+Herdr uses its Rose Pine theme with a Rose Pine iris accent. The repository config is [herdr/config.toml](herdr/config.toml), and the installed path is `~/.config/herdr/config.toml`.
+
+The panel, sidebar, and tab surface colors use `reset`, so they inherit the terminal background instead of being filled by the theme. Reload a running Herdr session after changes:
+
+```bash
+herdr server reload-config
+```
+
 ## Neovim keybindings
 
 The leader key is Space. These mappings use letters, punctuation, Ctrl, Alt, and normal Vim keys only. No F keys are required.

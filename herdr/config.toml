@@ -6,7 +6,11 @@ name = "rose-pine"
 # let the terminal background show through, like bg=default in tmux
 auto_switch = false
 [theme.custom]
+# Let Herdr's panel and tab/sidebar surfaces inherit the terminal background.
 panel_bg = "reset"
+surface0 = "reset"
+surface1 = "reset"
+surface_dim = "reset"
 # neutral white, matching the Ghostty/Neovim override
 text = "#E7E7E7"
 
@@ -25,7 +29,7 @@ focus_agent = "prefix+1..9"
 pane_history = false
 
 [ui]
-# active pane border in Nord green, like the tmux active border
-accent = "#A3BE8C"
+# Rose Pine iris for active borders, highlights, and navigation UI.
+accent = "#C4A7E7"
 agent_panel_sort = "priority"
 show_agent_labels_on_pane_borders = false
