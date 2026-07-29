@@ -131,9 +131,7 @@ Change it to `palette = "nord"` to switch back to the included Nord palette. The
 
 ## Herdr theme
 
-Herdr uses its Rose Pine theme with a Rose Pine iris accent. The repository config is [herdr/config.toml](herdr/config.toml), and the installed path is `~/.config/herdr/config.toml`.
-
-The panel, sidebar, and tab surface colors use `reset`, so they inherit the terminal background instead of being filled by the theme. Reload a running Herdr session after changes:
+Herdr uses its built-in Rose Pine theme without custom color overrides. The repository config is [herdr/config.toml](herdr/config.toml), and the installed path is `~/.config/herdr/config.toml`. Reload a running Herdr session after changes:
 
 ```bash
 herdr server reload-config
