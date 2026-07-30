@@ -18,6 +18,7 @@ $line_break\
 $character"""
 
 add_newline = true
+command_timeout = 2000
 # Change this one line to "nord" to use the alternate palette below.
 palette = "rose_pine_moon"
 
