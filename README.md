@@ -70,9 +70,10 @@ After linking the Neovim config, the installer runs lazy.nvim synchronization an
 - Treesitter highlighting, indentation, incremental selection, function/class/parameter textobjects, and movement between functions and classes.
 - LSP configuration through native Neovim 0.11 APIs, nvim-lspconfig, Mason, and Mason LSP config.
 - Servers for Lua, TypeScript/JavaScript, CSS, HTML, JSON, YAML, Bash, Docker, Docker Compose, Python, Ruff, Rust, SQL, and Terraform.
-- nvim-cmp completion with LuaSnip and friendly-snippets.
+- NvChad v2.5 defaults with Base46 theming, NvChad UI, tabufline, NvDash, NvCheatsheet, terminal management, Telescope, autopairs, and indent guides.
+- nvim-cmp completion with LuaSnip, friendly-snippets, and NvChad's completion defaults.
 - Conform formatting on save where a formatter is available, plus manual formatting.
-- Snacks pickers, nvim-tree file browsing, lualine, Which-Key, diagnostics, Fidget LSP progress, Comment.nvim, Gitsigns, Neogit, Diffview, and persistent sessions.
+- Telescope pickers, nvim-tree file browsing, Which-Key, diagnostics, Fidget LSP progress, Comment.nvim, Gitsigns, Neogit, Diffview, and persistent sessions.
 
 Treesitter uses its stable `master` branch because this machine has Neovim 0.11.6. Hendrik's current `main` branch requires Neovim 0.12 or newer. The feature set and parser list are still based on his setup.
 
@@ -92,40 +93,24 @@ If the server has not installed yet, run this inside Neovim:
 :MasonInstall rust-analyzer
 ```
 
-## Theme switching
+## NvChad UI and themes
 
-Rose Pine Moon is the permanent default. The repository setting is in [vim_config.lua](home/.config/nvim/lua/vim_config.lua). After installation, the same file is available at `~/.config/nvim/lua/vim_config.lua`:
+The NvChad UI configuration lives in [chadrc.lua](home/.config/nvim/lua/chadrc.lua). NvChad's default `onedark` theme, tabufline, statusline, dashboard, cheatsheet, terminal UI, and colorify module are enabled.
 
-```lua
-vim.g.dotfiles_theme = 'rose-pine-moon'
-```
-
-Change that value to one of these supported themes:
-
-```text
-rose-pine-moon
-tokyonight
-catppuccin-mocha
-nord
-```
-
-All four theme plugins are loaded, so these commands switch themes immediately for the current Neovim session:
+Use these commands inside Neovim:
 
 ```vim
-:colorscheme rose-pine-moon
-:colorscheme tokyonight
-:colorscheme catppuccin-mocha
-:colorscheme nord
+:NvCheatsheet
+:Nvdash
 ```
 
-`:colorscheme` changes only the current session. To make a choice permanent, edit `vim.g.dotfiles_theme` in `vim_config.lua`. Environment variables are optional shortcuts that override the Lua default for one launch:
+Use `<leader>th` to open the NvChad theme picker. The current default is transparent:
 
-```bash
-NVIM_THEME=tokyonight nvim
-NVIM_THEME=catppuccin-mocha nvim
+```lua
+vim.g.dotfiles_transparent = true
 ```
 
-Neovim now uses a transparent background by default. The repository setting is in [vim_config.lua](home/.config/nvim/lua/vim_config.lua), and the installed path is `~/.config/nvim/lua/vim_config.lua`:
+The repository setting is in [vim_config.lua](home/.config/nvim/lua/vim_config.lua), and the installed path is `~/.config/nvim/lua/vim_config.lua`:
 
 ```lua
 vim.g.dotfiles_transparent = true
@@ -133,7 +118,7 @@ vim.g.dotfiles_transparent = true
 
 For one launch only, use `NVIM_TRANSPARENT=1 nvim`. Use `NVIM_TRANSPARENT=0 nvim` to override the permanent setting for one launch.
 
-If a newly added theme is not installed yet, run `:Lazy sync` once.
+Use `NVIM_TRANSPARENT=0 nvim` for one launch with an opaque background.
 
 ## Starship theme
 
@@ -155,7 +140,7 @@ herdr server reload-config
 
 ## Neovim keybindings
 
-The leader key is Space. These mappings use letters, punctuation, Ctrl, Alt, and normal Vim keys only. No F keys are required.
+The leader key is Space. This configuration now starts with NvChad's default mappings and adds the repository-specific mappings below. Press `<leader>ch` or run `:NvCheatsheet` for the generated in-editor reference.
 
 ### Core editing
 
@@ -165,7 +150,9 @@ The leader key is Space. These mappings use letters, punctuation, Ctrl, Alt, and
 | `<leader>sn` | Save without triggering format-on-save |
 | `<Esc>` | Clear search highlights |
 | `<C-q>` | Quit the current window |
-| `<C-a>` | Select all |
+| `<C-c>` | Copy the whole file to the system clipboard (NvChad default) |
+| `<leader>sa` | Select all |
+| `<leader>rn` | Toggle relative line numbers (NvChad default) |
 | `jk` or `kj` | Leave insert mode |
 | `<C-d>` / `<C-u>` | Scroll down/up and center |
 | `n` / `N` | Next/previous search result and center |
@@ -179,27 +166,45 @@ The leader key is Space. These mappings use letters, punctuation, Ctrl, Alt, and
 
 | Key | Action |
 | --- | --- |
-| `-` or `<leader>e` | Toggle the nvim-tree sidebar |
+| `<C-n>` | Toggle the nvim-tree sidebar |
+| `<leader>e` | Focus nvim-tree |
 | `<leader>ef` | Find the current file in nvim-tree |
-| `<leader>sf` | Find files |
-| `<leader>sg` | Search text in the project |
-| `<leader>sw` | Search the word under the cursor |
-| `<leader>sh` | Search help tags |
-| `<leader>/` | Search the current buffer |
-| `<leader>sb` or `<leader><Tab>` | Pick a buffer |
-| `<leader>so` | Recent files |
-| `<leader>sr` | Resume the last picker |
-| `<leader>sd` | Pick diagnostics |
-| `<Tab>` / `<S-Tab>` | Next/previous buffer |
+| `<leader>ff` | Find files with Telescope |
+| `<leader>fa` | Find all files, including hidden and ignored files |
+| `<leader>fw` | Search text in the project with Telescope |
+| `<leader>fb` | Pick an open buffer |
+| `<leader>fh` | Search Neovim help |
+| `<leader>fo` | Browse recently opened files |
+| `<leader>fz` | Search the current buffer |
+| `<leader>th` | Open the NvChad theme picker |
+| `<leader>ch` | Open the NvChad cheatsheet |
+| `<leader>wK` | Show all Which-Key mappings |
+| `<leader>wk` | Search Which-Key mappings |
+| `<Tab>` / `<S-Tab>` | Next/previous buffer in the tabufline |
 | `<leader>x` | Close the current buffer |
 | `<leader>b` | Create a new buffer |
 | `<C-h/j/k/l>` | Move between splits |
-| `<leader>v` / `<leader>h` | Vertical/horizontal split |
-| `<leader>se` | Equalize splits |
-| `<leader>xs` | Close the current split |
+| `<leader>wv` / `<leader>wh` | Vertical/horizontal split |
+| `<leader>we` | Equalize splits |
+| `<leader>wx` | Close the current split |
 | Arrow keys | Resize the current split |
 | `<leader>to` / `<leader>tx` | Open/close a tab |
 | `<leader>tn` / `<leader>tp` | Next/previous tab |
+
+The top tabufline is primarily a buffer bar: opening another search result creates or switches to a buffer shown there, so you can move between files with `<Tab>` and `<S-Tab>`. Real Vim tab pages remain available through `<leader>to`, `<leader>tx`, `<leader>tn`, and `<leader>tp`.
+
+The old `<leader>sf`, `<leader>sg`, and `<leader>sw` Snacks mappings were removed. Use `<leader>ff`, `<leader>fw`, and Telescope's other `f*` mappings instead.
+
+### Terminals
+
+| Key | Action |
+| --- | --- |
+| `<leader>h` | Open a new horizontal terminal |
+| `<leader>v` | Open a new vertical terminal |
+| `<A-h>` | Toggle a horizontal terminal |
+| `<A-v>` | Toggle a vertical terminal |
+| `<A-i>` | Toggle a floating terminal |
+| `<leader>pt` | Pick a hidden terminal |
 
 ### LSP and diagnostics
 
@@ -211,18 +216,20 @@ These mappings appear when an LSP is attached to the current buffer.
 | `gr` | References picker |
 | `gI` | Implementations picker |
 | `gD` | Declaration |
+| `<leader>D` | Type definition (NvChad default) |
 | `K` | Hover documentation |
-| `<leader>D` | Type definitions picker |
-| `<leader>ds` | Document symbols |
+| `<leader>ra` | Rename symbol (NvChad default) |
 | `<leader>ws` | Workspace symbols |
-| `<leader>rn` | Rename symbol |
 | `<leader>ca` | Code action |
 | `<leader>wa` / `<leader>wr` / `<leader>wl` | Add/remove/list workspace folders |
-| `<leader>th` | Toggle inlay hints when supported |
-| `<leader>lf` | Format the buffer |
+| `<leader>li` | Toggle inlay hints when supported |
+| `<leader>fm` | Format the buffer (NvChad default) |
+| `<leader>lf` | Format the buffer alias |
 | `[d` / `]d` | Previous/next diagnostic |
 | `<leader>d` | Open diagnostic details |
-| `<leader>q` | Send diagnostics to the location list |
+| `<leader>ds` | Send diagnostics to the location list (NvChad default) |
+| `<leader>ls` | Document symbols picker |
+| `<leader>ws` | Workspace symbols picker |
 | `<leader>do` | Enable/disable diagnostics |
 
 ### Completion and snippets
@@ -230,9 +237,10 @@ These mappings appear when an LSP is attached to the current buffer.
 | Key | Action |
 | --- | --- |
 | `<C-Space>` | Open completion |
-| `<C-j>` / `<C-k>` | Next/previous completion item |
+| `<C-n>` / `<C-p>` | Next/previous completion item |
 | `<CR>` | Accept the selected item |
 | `<C-e>` | Close completion |
+| `<C-d>` / `<C-f>` | Scroll completion documentation |
 | `<Tab>` / `<S-Tab>` | Select completion or move through a snippet |
 | `<C-l>` / `<C-h>` | Move forward/backward through a snippet |
 
@@ -246,9 +254,25 @@ These mappings appear when an LSP is attached to the current buffer.
 | `]m` / `[m` | Next/previous function |
 | `]]` / `[[` | Next/previous class |
 | `gnn`, `grn`, `grc`, `grm` | Treesitter incremental selection |
-| `<C-_>` or `<C-c>` | Toggle a comment |
+| `<leader>/` | Toggle a comment (NvChad default) |
 | `<leader>g` | Open Neogit |
-| `<leader>ss` / `<leader>sl` | Save/load the session in Neovim's state directory |
+| `<leader>cm` | Browse Git commits with Telescope |
+| `<leader>gt` | Browse Git status with Telescope |
+| `<leader>qs` / `<leader>ql` | Save/load the session in Neovim's state directory |
+
+### Keybinding migration notes
+
+- `<leader>sf` became `<leader>ff` for file search.
+- `<leader>sg` became `<leader>fw` for live grep.
+- `<leader>e` now focuses nvim-tree. `<C-n>` toggles it.
+- `<leader>h` and `<leader>v` now open NvChad terminals. Window splits moved to `<leader>wh` and `<leader>wv`.
+- `<leader>ss` and `<leader>sl` became `<leader>qs` and `<leader>ql` so the `<leader>s` prefix remains available to NvChad search mappings.
+- `<C-c>` now uses NvChad's copy-whole-file behavior. Use `<leader>sa` to select all.
+- `<leader>rn` is NvChad's relative-number toggle. Rename with `<leader>ra`; the old custom `<leader>rn` rename alias is gone.
+- `<leader>ds` is NvChad's diagnostic location list. Document symbols moved to `<leader>ls`.
+- `<leader>th` remains available for the NvChad theme picker. Inlay hints moved to `<leader>li`.
+- `<leader>/` is the NvChad comment toggle. The old Ctrl-based comment mappings were removed so `<C-c>` can keep NvChad's copy-file behavior.
+- NvChad's tabufline now displays buffers and tab pages at the top of the editor.
 
 ## WezTerm on Windows
 

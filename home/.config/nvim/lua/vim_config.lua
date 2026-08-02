@@ -1,15 +1,6 @@
 local o = vim.opt
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Change this value to set the permanent default theme.
--- NVIM_THEME can override it for a single launch.
-vim.g.dotfiles_theme = 'rose-pine-moon'
-
--- Set this to true for a permanent transparent Neovim background.
--- NVIM_TRANSPARENT=1 or NVIM_TRANSPARENT=0 can override it for one launch.
-vim.g.dotfiles_transparent = true
+require('nvchad.options')
 
 o.number = true
 o.relativenumber = true

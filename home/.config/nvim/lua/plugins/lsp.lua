@@ -75,6 +75,7 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
       {
@@ -99,6 +100,11 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      local nvchad_lsp_ok, nvchad_lsp = pcall(require, 'nvchad.configs.lspconfig')
+      if nvchad_lsp_ok then
+        pcall(nvchad_lsp.defaults)
+      end
+
       vim.diagnostic.config({
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
@@ -124,13 +130,12 @@ return {
             })
           end
 
-          map('gd', function() Snacks.picker.lsp_definitions() end, 'Goto definition')
-          map('gr', function() Snacks.picker.lsp_references() end, 'Goto references')
-          map('gI', function() Snacks.picker.lsp_implementations() end, 'Goto implementation')
-          map('<leader>D', function() Snacks.picker.lsp_type_definitions() end, 'Type definition')
-          map('<leader>ds', function() Snacks.picker.lsp_symbols() end, 'Document symbols')
-          map('<leader>ws', function() Snacks.picker.lsp_workspace_symbols() end, 'Workspace symbols')
-          map('<leader>rn', vim.lsp.buf.rename, 'Rename')
+          local telescope = require('telescope.builtin')
+          map('gd', telescope.lsp_definitions, 'Goto definition')
+          map('gr', telescope.lsp_references, 'Goto references')
+          map('gI', telescope.lsp_implementations, 'Goto implementation')
+          map('<leader>ls', telescope.lsp_document_symbols, 'Document symbols')
+          map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, 'Workspace symbols')
           map('<leader>ca', vim.lsp.buf.code_action, 'Code action')
           map('K', vim.lsp.buf.hover, 'Hover documentation')
           map('gD', vim.lsp.buf.declaration, 'Goto declaration')
@@ -142,7 +147,7 @@ return {
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map('<leader>th', function()
+            map('<leader>li', function()
               local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
               vim.lsp.inlay_hint.enable(not enabled, { bufnr = event.buf })
             end, 'Toggle inlay hints')
@@ -171,7 +176,8 @@ return {
         end,
       })
 
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = nvchad_lsp_ok and nvchad_lsp.capabilities
+        or require('cmp_nvim_lsp').default_capabilities()
       for server, config in pairs(servers) do
         local server_config = vim.tbl_deep_extend('force', {}, config)
         server_config.capabilities = vim.tbl_deep_extend(
@@ -180,6 +186,9 @@ return {
           capabilities,
           server_config.capabilities or {}
         )
+        if nvchad_lsp_ok then
+          server_config.on_init = nvchad_lsp.on_init
+        end
 
         local ok, err = pcall(function()
           vim.lsp.config(server, server_config)
