@@ -1,10 +1,39 @@
 return {
   {
-    'stevearc/oil.nvim',
-    opts = { view_options = { show_hidden = true } },
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    cmd = {
+      'NvimTreeToggle',
+      'NvimTreeOpen',
+      'NvimTreeFindFile',
+    },
     keys = {
-      { '-', '<cmd>Oil<cr>', desc = 'File browser' },
-      { '<leader>e', '<cmd>Oil<cr>', desc = 'File browser' },
+      { '-', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file tree' },
+      { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file tree' },
+      { '<leader>ef', '<cmd>NvimTreeFindFile<cr>', desc = 'Find current file in tree' },
+    },
+    opts = {
+      view = {
+        side = 'left',
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = false,
+      },
+      update_focused_file = {
+        enable = true,
+        update_root = false,
+      },
+      sync_root_with_cwd = true,
+      diagnostics = {
+        enable = true,
+      },
+      git = {
+        enable = true,
+      },
     },
   },
   {

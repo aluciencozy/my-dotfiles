@@ -69,12 +69,28 @@ After linking the Neovim config, the installer runs lazy.nvim synchronization an
 
 - Treesitter highlighting, indentation, incremental selection, function/class/parameter textobjects, and movement between functions and classes.
 - LSP configuration through native Neovim 0.11 APIs, nvim-lspconfig, Mason, and Mason LSP config.
-- Servers for Lua, TypeScript/JavaScript, CSS, HTML, JSON, YAML, Bash, Docker, Docker Compose, Python, Ruff, SQL, and Terraform.
+- Servers for Lua, TypeScript/JavaScript, CSS, HTML, JSON, YAML, Bash, Docker, Docker Compose, Python, Ruff, Rust, SQL, and Terraform.
 - nvim-cmp completion with LuaSnip and friendly-snippets.
 - Conform formatting on save where a formatter is available, plus manual formatting.
-- Snacks pickers, Oil file browsing, lualine, Which-Key, diagnostics, Fidget LSP progress, Comment.nvim, Gitsigns, Neogit, Diffview, and persistent sessions.
+- Snacks pickers, nvim-tree file browsing, lualine, Which-Key, diagnostics, Fidget LSP progress, Comment.nvim, Gitsigns, Neogit, Diffview, and persistent sessions.
 
 Treesitter uses its stable `master` branch because this machine has Neovim 0.11.6. Hendrik's current `main` branch requires Neovim 0.12 or newer. The feature set and parser list are still based on his setup.
+
+### Rust
+
+Rust buffers use `rust_analyzer` for completion, diagnostics, navigation, code actions, and inlay hints. The server is installed through Mason on startup, and the Rust Treesitter parser is included in the parser list. Conform uses the Rust toolchain's `rustfmt` on save.
+
+Make sure the Rust toolchain has the formatter and Clippy components:
+
+```bash
+rustup component add rustfmt clippy
+```
+
+If the server has not installed yet, run this inside Neovim:
+
+```vim
+:MasonInstall rust-analyzer
+```
 
 ## Theme switching
 
@@ -163,7 +179,8 @@ The leader key is Space. These mappings use letters, punctuation, Ctrl, Alt, and
 
 | Key | Action |
 | --- | --- |
-| `-` or `<leader>e` | Open Oil file browser |
+| `-` or `<leader>e` | Toggle the nvim-tree sidebar |
+| `<leader>ef` | Find the current file in nvim-tree |
 | `<leader>sf` | Find files |
 | `<leader>sg` | Search text in the project |
 | `<leader>sw` | Search the word under the cursor |
