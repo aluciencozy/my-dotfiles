@@ -43,6 +43,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
 alias gb='git branch'
+alias gf='git fetch origin'
 
 # Ubuntu names fd as fdfind
 alias fd='fdfind'
