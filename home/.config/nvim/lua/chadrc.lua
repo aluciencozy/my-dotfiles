@@ -1,7 +1,7 @@
 local M = {}
 
 M.base46 = {
-  theme = 'onedark',
+  theme = "jabuti",
   transparency = vim.g.dotfiles_transparent,
 }
 
