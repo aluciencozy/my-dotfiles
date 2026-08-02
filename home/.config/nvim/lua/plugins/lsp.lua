@@ -26,6 +26,7 @@ local servers = {
   docker_compose_language_service = {},
   pyright = {},
   ruff = {},
+  rust_analyzer = {},
   sqlls = {},
   terraformls = {},
 }
@@ -43,6 +44,7 @@ local formatters_by_ft = {
   markdown = { 'prettier' },
   yaml = { 'prettier' },
   python = { 'ruff_format' },
+  rust = { 'rustfmt' },
   sh = { 'shfmt' },
   bash = { 'shfmt' },
 }
@@ -85,7 +87,7 @@ return {
       {
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         opts = {
-          ensure_installed = { 'stylua', 'prettier', 'shfmt', 'ruff' },
+          ensure_installed = { 'stylua', 'prettier', 'shfmt', 'ruff', 'rust-analyzer' },
         },
       },
       {
