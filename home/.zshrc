@@ -1,6 +1,11 @@
 # Add personal executables to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# Google Cloud SDK
+if [ -d "$HOME/google-cloud-sdk/bin" ]; then
+  export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+fi
+
 # Default editor
 export EDITOR="nvim"
 export VISUAL="nvim"
