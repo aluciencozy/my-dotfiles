@@ -1,8 +1,7 @@
 ﻿local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "rose-pine-moon"
--- config.color_scheme = "Nord (Gogh)"
+config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 12
 

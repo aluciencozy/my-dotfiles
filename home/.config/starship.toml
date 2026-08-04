@@ -19,11 +19,11 @@ $character"""
 
 add_newline = true
 command_timeout = 2000
-# Change this one line to "nord" to use the alternate palette below.
-palette = "rose_pine_moon"
+# Active palette: Catppuccin Mocha.
+palette = "catppuccin_mocha"
 
 [directory]
-style = 'bold fg:iris'
+style = 'bold fg:lavender'
 format = '[$path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -36,47 +36,47 @@ truncate_to_repo = false
 'Pictures' = ' '
 
 [git_branch]
-style = 'fg:foam'
+style = 'fg:teal'
 symbol = ' '
 format = '[on](text) [$symbol$branch ]($style)'
 
 [git_status]
-style = 'fg:love'
+style = 'fg:red'
 format = '([$all_status$ahead_behind]($style) )'
 
 [fill]
 symbol = ' '
 
 [python]
-style = 'fg:rose'
+style = 'fg:peach'
 symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
 
 [lua]
-style = 'fg:iris'
+style = 'fg:mauve'
 format = '[$symbol($version )]($style)'
 symbol = ' '
 
 [nodejs]
-style = 'fg:foam'
+style = 'fg:green'
 symbol = ' '
 
 [golang]
-style = 'fg:pine'
+style = 'fg:sapphire'
 symbol = ' '
 
 [haskell]
-style = 'fg:iris'
+style = 'fg:mauve'
 symbol = ' '
 
 [rust]
-style = 'fg:gold'
+style = 'fg:yellow'
 symbol = ' '
 
 [ruby]
-style = 'fg:rose'
+style = 'fg:flamingo'
 symbol = ' '
 
 [package]
@@ -84,45 +84,51 @@ symbol = '󰏗 '
 
 [aws]
 symbol = ' '
-style = 'fg:gold'
+style = 'fg:yellow'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [docker_context]
 symbol = ' '
-style = 'fg:pine'
+style = 'fg:blue'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
 [jobs]
 symbol = ' '
-style = 'fg:love'
+style = 'fg:red'
 number_threshold = 1
 format = '[$symbol]($style)'
 
 [cmd_duration]
 min_time = 500
-style = 'fg:muted'
+style = 'fg:overlay0'
 format = '[$duration]($style)'
 
-[palettes.rose_pine_moon]
-iris = '#C4A7E7'
-foam = '#9CCFD8'
-love = '#EB6F92'
-rose = '#EA9A97'
-gold = '#F6C177'
-pine = '#3E8FB0'
-muted = '#6E6A86'
-text = '#E0DEF4'
-base = '#232136'
-
-[palettes.nord]
-iris = '#B48EAD'
-foam = '#88C0D0'
-love = '#BF616A'
-rose = '#D08770'
-gold = '#EBCB8B'
-pine = '#5E81AC'
-muted = '#434C5E'
-text = '#E7E7E7'
-base = '#2E3440'
+[palettes.catppuccin_mocha]
+rosewater = '#f5e0dc'
+flamingo = '#f2cdcd'
+pink = '#f5c2e7'
+mauve = '#cba6f7'
+red = '#f38ba8'
+maroon = '#eba0ac'
+peach = '#fab387'
+yellow = '#f9e2af'
+green = '#a6e3a1'
+teal = '#94e2d5'
+sky = '#89dceb'
+sapphire = '#74c7ec'
+blue = '#89b4fa'
+lavender = '#b4befe'
+text = '#cdd6f4'
+subtext1 = '#bac2de'
+subtext0 = '#a6adc8'
+overlay2 = '#9399b2'
+overlay1 = '#7f849c'
+overlay0 = '#6c7086'
+surface2 = '#585b70'
+surface1 = '#45475a'
+surface0 = '#313244'
+base = '#1e1e2e'
+mantle = '#181825'
+crust = '#11111b'

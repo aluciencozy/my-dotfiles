@@ -144,8 +144,8 @@ chsh -s "$(command -v zsh)" "$USER" || true
 
 echo
 echo "Done. Restart your shell with: exec zsh"
-echo "Default Neovim theme: Rose Pine Moon"
+echo "Default Neovim theme: Catppuccin"
 echo "Permanent theme setting: home/.config/nvim/lua/vim_config.lua"
 echo "Switch themes for one session with: NVIM_THEME=tokyonight nvim"
-echo "Starship palette: Rose Pine Moon"
+echo "Starship palette: Catppuccin Mocha"
 echo "Copy windows/wezterm/wezterm.lua to your Windows home directory for WezTerm."

@@ -95,7 +95,7 @@ If the server has not installed yet, run this inside Neovim:
 
 ## NvChad UI and themes
 
-The NvChad UI configuration lives in [chadrc.lua](home/.config/nvim/lua/chadrc.lua). NvChad's default `onedark` theme, tabufline, statusline, dashboard, cheatsheet, terminal UI, and colorify module are enabled.
+The NvChad UI configuration lives in [chadrc.lua](home/.config/nvim/lua/chadrc.lua). The Catppuccin theme, tabufline, statusline, dashboard, cheatsheet, terminal UI, and colorify module are enabled.
 
 Use these commands inside Neovim:
 
@@ -122,17 +122,17 @@ Use `NVIM_TRANSPARENT=0 nvim` for one launch with an opaque background.
 
 ## Starship theme
 
-Starship is now using a Rose Pine Moon palette. Its active palette is one line in [starship.toml](home/.config/starship.toml), or `~/.config/starship.toml` after installation:
+Starship uses a Catppuccin Mocha palette. Its active palette is one line in [starship.toml](home/.config/starship.toml), or `~/.config/starship.toml` after installation:
 
 ```toml
-palette = "rose_pine_moon"
+palette = "catppuccin_mocha"
 ```
 
-Change it to `palette = "nord"` to switch back to the included Nord palette. The prompt uses separate Rose Pine roles for directory, Git, language, and status colors instead of mapping most sections to blue. Restart the shell with `exec zsh` after changing it.
+The prompt uses Catppuccin semantic roles for directory, Git, language, and status colors. Restart the shell with `exec zsh` after changing it.
 
 ## Herdr theme
 
-Herdr uses its built-in Rose Pine theme without custom color overrides. The repository config is [herdr/config.toml](herdr/config.toml), and the installed path is `~/.config/herdr/config.toml`. Reload a running Herdr session after changes:
+Herdr uses its built-in Catppuccin theme without custom color overrides. The repository config is [herdr/config.toml](herdr/config.toml), and the installed path is `~/.config/herdr/config.toml`. Reload a running Herdr session after changes:
 
 ```bash
 herdr server reload-config
@@ -282,7 +282,7 @@ From PowerShell, copy the one repository config to the Windows path WezTerm read
 wsl cp ~/github/my-dotfiles/windows/wezterm/wezterm.lua /mnt/c/Users/<WindowsUser>/.wezterm.lua
 ```
 
-The Windows config uses Rose Pine Moon, Ctrl-Space as its leader, Alt-h/j/k/l for pane movement, and Ctrl-Shift-t/w for tabs and pane closing. Windows-specific symlink behavior is intentionally left outside the WSL installer.
+The Windows config uses Catppuccin Mocha, Ctrl-Space as its leader, Alt-h/j/k/l for pane movement, and Ctrl-Shift-t/w for tabs and pane closing. Windows-specific symlink behavior is intentionally left outside the WSL installer.
 
 ## Verify and update
 
