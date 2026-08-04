@@ -11,6 +11,7 @@ map('n', '<Esc>', '<cmd>nohlsearch<cr>', opts)
 map('n', '<C-s>', '<cmd>write<cr>', opts)
 map('n', '<leader>sn', '<cmd>noautocmd write<cr>', opts)
 map('n', '<C-q>', '<cmd>quit<cr>', opts)
+map('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 map('n', '<leader>sa', 'ggVG', { desc = 'Select all' })
 map('n', 'x', '"_x', opts)
 

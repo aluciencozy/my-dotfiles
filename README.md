@@ -151,6 +151,7 @@ The leader key is Space. This configuration now starts with NvChad's default map
 | `<Esc>` | Clear search highlights |
 | `<C-q>` | Quit the current window |
 | `<C-c>` | Copy the whole file to the system clipboard (NvChad default) |
+| `<C-a>` | Select the whole file |
 | `<leader>sa` | Select all |
 | `<leader>rn` | Toggle relative line numbers (NvChad default) |
 | `jk` or `kj` | Leave insert mode |
