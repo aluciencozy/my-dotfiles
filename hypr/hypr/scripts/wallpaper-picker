@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+selection="$(
+  find "$WALLPAPER_DIR" -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) |
+    sort |
+    while IFS= read -r wallpaper; do
+      name="$(basename "$wallpaper")"
+
+      printf '%s\0icon\x1f%s\x1fdisplay\x1f%s\n' \
+        "$wallpaper" \
+        "$wallpaper" \
+        "$name"
+    done |
+    rofi -dmenu \
+      -i \
+      -show-icons \
+      -no-custom \
+      -p "Wallpaper" \
+      -theme-str '
+        window {
+            width: 75%;
+            height: 75%;
+        }
+
+        listview {
+            columns: 6;
+            lines: 2;
+            flow: horizontal;
+            spacing: 12px;
+            scrollbar: true;
+        }
+
+        element {
+            orientation: vertical;
+            padding: 8px;
+        }
+
+        element-icon {
+            size: 220px;
+        }
+
+        element-text {
+            horizontal-align: 0.5;
+        }
+    '
+)"
+
+[ -z "$selection" ] && exit 0
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/wallpaper"
+mkdir -p "$STATE_DIR"
+printf '%s\n' "$selection" >"$STATE_DIR/current"
+
+awww img "$selection" \
+  --resize crop \
+  --transition-type random \
+  --transition-duration 1.2 \
+  --transition-fps 120

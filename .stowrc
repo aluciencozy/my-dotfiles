@@ -1,0 +1,6 @@
+--target=~/.config
+--ignore='(^|/)\.stowrc$'
+--ignore='(^|/)\.agents($|/)'
+--ignore='(^|/)\.codex($|/)'
+--ignore='(^|/)zsh($|/)'
+--ignore='(^|/)(README\.md|setup\.sh)$'

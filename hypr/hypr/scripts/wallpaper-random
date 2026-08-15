@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+wallpaper="$(
+  find "$WALLPAPER_DIR" -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) |
+    shuf -n 1
+)"
+
+[ -z "$wallpaper" ] && exit 1
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/wallpaper"
+mkdir -p "$STATE_DIR"
+printf '%s\n' "$wallpaper" >"$STATE_DIR/current"
+
+awww img "$wallpaper" \
+  --resize crop \
+  --transition-type random \
+  --transition-duration 1.2 \
+  --transition-fps 120

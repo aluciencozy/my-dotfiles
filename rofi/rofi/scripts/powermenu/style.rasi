@@ -1,0 +1,100 @@
+/* Catppuccin Macchiato power menu */
+
+configuration {
+    show-icons: false;
+}
+
+* {
+    base:       #24273a;
+    mantle:     #1e2030;
+    surface0:   #363a4f;
+    surface1:   #494d64;
+
+    text:       #cad3f5;
+    subtext0:   #a5adcb;
+
+    lavender:   #b7bdf8;
+}
+
+window {
+    location: center;
+    anchor: center;
+
+    width: 500px;
+
+    background-color: @base;
+
+    border: 2px solid;
+    border-color: @lavender;
+    border-radius: 14px;
+}
+
+mainbox {
+    padding: 22px;
+    spacing: 16px;
+
+    background-color: transparent;
+
+    children: [ message, listview ];
+}
+
+message {
+    enabled: true;
+
+    padding: 0px 0px 6px 0px;
+
+    background-color: transparent;
+    text-color: @subtext0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @subtext0;
+
+    font: "Maple Mono NF 11";
+
+    horizontal-align: 0.5;
+}
+
+listview {
+    columns: 5;
+    lines: 1;
+
+    fixed-columns: true;
+    fixed-height: true;
+
+    spacing: 0px;
+
+    background-color: transparent;
+}
+
+element {
+    children: [ element-text ];
+
+    margin: 0px 5px;
+    padding: 16px;
+
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 10px;
+
+    background-color: transparent;
+    text-color: @text;
+}
+
+element selected.normal {
+    background-color: @surface0;
+
+    border-color: @lavender;
+    text-color: @lavender;
+}
+
+element-text {
+    font: "Symbols Nerd Font 27";
+
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    background-color: transparent;
+    text-color: inherit;
+}

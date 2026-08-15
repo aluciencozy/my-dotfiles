@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+uptime="$(uptime -p | sed 's/^up //')"
+
+shutdown='󰐥'
+reboot='󰜉'
+lock=''
+suspend='󰤄'
+logout='󰍃'
+
+chosen="$(
+  printf '%s\n%s\n%s\n%s\n%s\n' \
+    "$lock" \
+    "$suspend" \
+    "$logout" \
+    "$reboot" \
+    "$shutdown" |
+    rofi -dmenu \
+      -i \
+      -no-custom \
+      -mesg "Uptime: $uptime" \
+      -theme ~/.config/rofi/scripts/powermenu/style.rasi
+)"
+
+case "$chosen" in
+"$lock")
+  hyprlock
+  ;;
+"$suspend")
+  hyprlock &
+  sleep 0.5
+  systemctl suspend
+  ;;
+"$logout")
+  hyprctl dispatch exit
+  ;;
+"$reboot")
+  systemctl reboot
+  ;;
+"$shutdown")
+  systemctl poweroff
+  ;;
+esac
