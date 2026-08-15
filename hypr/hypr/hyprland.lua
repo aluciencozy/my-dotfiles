@@ -182,7 +182,7 @@ hl.config({
 				locked_inactive = alpha(colors.subtext1Alpha, "99"),
 			},
 
-			font_family = "Maple Mono NF",
+			font_family = "Dotfiles Mono",
 			font_size = 15,
 			text_color = colors.crust,
 			height = 20,
@@ -196,7 +196,7 @@ hl.config({
 	misc = {
 		focus_on_activate = true,
 		animate_manual_resizes = true,
-		font_family = "Maple Mono NF",
+		font_family = "Dotfiles Mono",
 	},
 
 	dwindle = {

@@ -23,7 +23,7 @@ go.autoformat = true
 -- Font
 go.gui_font_default_size = 10
 go.gui_font_size = go.gui_font_default_size
-go.gui_font_face = "Maple Mono NF"
+go.gui_font_face = "Dotfiles Mono"
 
 -- Enable EditorConfig integration
 go.editorconfig = true

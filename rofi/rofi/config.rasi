@@ -8,7 +8,7 @@ configuration {
   normalize-match: true;
   show-icons: true;
   icon-theme: "Papirus-Dark";
-  font: "Maple Mono NF 10.5";
+  font: "Dotfiles Mono 10.5";
   steal-focus: false;
   hover-select: true;
 

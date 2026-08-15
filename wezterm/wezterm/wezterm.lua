@@ -8,7 +8,7 @@ return {
 	enable_tab_bar = false,
 	font_size = 16.0,
 	font = wezterm.font_with_fallback({
-		{ family = "JetBrains Mono", weight = "Bold" },
+		{ family = "Dotfiles Mono", weight = "Bold" },
 		"MesloLGS Nerd Font Mono",
 	}),
 	window_background_opacity = 1.0,

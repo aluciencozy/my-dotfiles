@@ -37,7 +37,6 @@
     "plugins.extras.ui.which-key-extended",
     "plugins.extras.util.persistence-extended",
     "plugins.extras.util.snacks-extended",
-    "plugins.extras.util.wakatime",
     "plugins.extras.util.yazi"
   ],
   "install_version": 7,

@@ -51,7 +51,7 @@ textbox {
     background-color: transparent;
     text-color: @subtext0;
 
-    font: "Maple Mono NF 11";
+    font: "Dotfiles Mono 11";
 
     horizontal-align: 0.5;
 }

@@ -4,7 +4,7 @@ set -e
 
 theme='catppuccin-macchiato-lavender-standard+default'
 icons='Catppuccin-SE'
-font='Maple Mono NF 10'
+font='Dotfiles Mono 10'
 
 # GNOME / general GTK settings
 gsettings set org.gnome.desktop.interface gtk-theme "$theme"
