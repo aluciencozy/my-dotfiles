@@ -1,6 +1,5 @@
 return {
   { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "plugins.extras.lang.json-extended" },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {

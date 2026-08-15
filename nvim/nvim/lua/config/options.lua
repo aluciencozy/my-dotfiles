@@ -5,9 +5,7 @@ local o = vim.opt
 vim.loader.enable()
 
 -- Personal Config and LazyVim global options
-go.lualine_info_extras = false
 go.snacks_animate = true
-go.codeium_cmp_hide = false
 go.lazygit_config = false
 go.lazyvim_cmp = "blink.cmp"
 go.lazyvim_picker = "snacks"
@@ -31,7 +29,7 @@ go.editorconfig = true
 -- Root dir detection
 go.root_spec = {
   "lsp",
-  { ".git", "lua", ".obsidian", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src" },
+  { ".git", "lua", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src" },
   "cwd",
 }
 

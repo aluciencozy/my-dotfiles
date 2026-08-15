@@ -1,21 +1,3 @@
-local formatter = function()
-  local formatters = require("conform").list_formatters(0)
-  if #formatters == 0 then
-    return ""
-  end
-
-  return "󰛖 "
-end
-
-local linter = function()
-  local linters = require("lint").linters_by_ft[vim.bo.filetype]
-  if #linters == 0 then
-    return ""
-  end
-
-  return "󱉶 "
-end
-
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
@@ -38,12 +20,6 @@ return {
         directory_hl = "Conceal",
       }),
     }
-
-    if vim.g.lualine_info_extras == true then
-      table.insert(opts.sections.lualine_x, 2, { "lsp_status" })
-      table.insert(opts.sections.lualine_x, 2, formatter)
-      table.insert(opts.sections.lualine_x, 2, linter)
-    end
 
     opts.sections.lualine_y = { "progress" }
     opts.sections.lualine_z = {

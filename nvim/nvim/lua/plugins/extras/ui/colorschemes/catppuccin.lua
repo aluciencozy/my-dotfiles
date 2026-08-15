@@ -63,40 +63,6 @@ return {
     },
   },
   {
-    "akinsho/bufferline.nvim",
-    opts = {
-      highlights = require("catppuccin.special.bufferline").get_theme({
-        styles = { "italic", "bold" },
-        custom = {
-          all = {
-            fill = {
-              bg = palette.mantle,
-            },
-            separator_selected = {
-              bg = palette.base,
-              fg = palette.mantle,
-            },
-            separator = {
-              bg = palette.mantle,
-              fg = palette.mantle,
-            },
-            tab_separator = {
-              bg = palette.mantle,
-              fg = palette.mantle,
-            },
-            tab_selected = {
-              bg = palette.base,
-            },
-            tab_separator_selected = {
-              bg = palette.base,
-              fg = palette.mantle,
-            },
-          },
-        },
-      }),
-    },
-  },
-  {
     "rasulomaroff/reactive.nvim",
     optional = true,
     opts = {

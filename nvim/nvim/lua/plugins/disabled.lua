@@ -7,6 +7,7 @@ local disabled = {
   { "folke/trouble.nvim" },
   { "folke/tokyonight.nvim" },
   { "linux-cultist/venv-selector.nvim" },
+  { "folke/persistence.nvim" },
 }
 
 for i, plugin in ipairs(disabled) do
