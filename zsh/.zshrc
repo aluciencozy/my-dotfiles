@@ -22,25 +22,64 @@ fi
 
 eval "$(starship init zsh)"
 
-# monitor brightness fix
-monitor-fix() {
-    hyprctl eval 'hl.monitor({
-        output = "HDMI-A-1",
-        mode = "1920x1080@144",
-        position = "4340x0",
-        scale = 1
-    })'
-
-    sleep 0.5
-
-    hyprctl eval 'hl.monitor({
-        output = "HDMI-A-1",
-        mode = "1920x1080@165",
-        position = "4340x0",
-        scale = 1
-    })'
-}
-
 alias starship-which='basename "$(dirname "$(readlink -f ~/.config/starship.toml)")"'
 alias starship-omer='cd ~/github/dotfiles && stow -D starship-custom 2>/dev/null; stow starship-omer'
 alias starship-custom='cd ~/github/dotfiles && stow -D starship-omer 2>/dev/null; stow starship-custom'
+
+# Work around Sceptre monitor brightness bug by toggling refresh rate.
+# The current position, scale, resolution, and refresh rate are preserved.
+monitor-fix() {
+    local output="HDMI-A-1"
+    local width height x y scale refresh
+
+    read -r width height x y scale refresh < <(
+        hyprctl monitors -j | python3 -c '
+import json
+import sys
+
+name = "HDMI-A-1"
+monitor = next(
+    (m for m in json.load(sys.stdin) if m["name"] == name),
+    None,
+)
+
+if monitor is None:
+    raise SystemExit(1)
+
+print(
+    monitor["width"],
+    monitor["height"],
+    monitor["x"],
+    monitor["y"],
+    monitor["scale"],
+    monitor["refreshRate"],
+)
+'
+    )
+
+    if [[ -z "$width" ]]; then
+        echo "monitor-fix: $output not found"
+        return 1
+    fi
+
+    local resolution="${width}x${height}"
+    local position="${x}x${y}"
+
+    # Temporarily drop to 144 Hz.
+    hyprctl eval "hl.monitor({
+        output = \"$output\",
+        mode = \"${resolution}@144\",
+        position = \"$position\",
+        scale = $scale
+    })" >/dev/null
+
+    sleep 0.5
+
+    # Restore the refresh rate/configuration that was active before.
+    hyprctl eval "hl.monitor({
+        output = \"$output\",
+        mode = \"${resolution}@${refresh}\",
+        position = \"$position\",
+        scale = $scale
+    })" >/dev/null
+}
