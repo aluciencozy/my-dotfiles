@@ -1,5 +1,5 @@
 local disabled = {
-  { "akinsho/bufferline.nvim" },
+  --  { "akinsho/bufferline.nvim" },
   { "nvim-neo-tree/neo-tree.nvim" },
   { "folke/flash.nvim" },
   { "folke/todo-comments.nvim" },

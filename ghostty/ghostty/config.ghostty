@@ -2,7 +2,7 @@ theme = Catppuccin Macchiato
 
 font-family = Dotfiles Mono
 font-style = ExtraBold
-font-size = 16
+font-size = 14
 
 cursor-style = block
 cursor-style-blink = true

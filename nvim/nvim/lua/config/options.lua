@@ -42,7 +42,7 @@ o.cmdheight = 0
 o.mouse = ""
 
 -- Disable native bufferline
-o.showtabline = 0
+-- o.showtabline = 0
 
 -- Enable spell checking
 o.spell = true
