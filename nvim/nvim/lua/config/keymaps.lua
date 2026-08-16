@@ -38,6 +38,9 @@ map({ "n", "i" }, "<A-s>", "<cmd>noautocmd w<CR>", { desc = "Save Without Format
 map("n", "+", "<C-a>")
 map("n", "-", "<C-x>")
 
+-- Custom Ctrl+A
+map("n", "<C-a>", "ggVG", { desc = "Select all " })
+
 -- Buffers
 map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "First Buffer" })
 map("n", "<leader>ba", "<cmd>blast<cr>", { desc = "Last Buffer" })
@@ -46,7 +49,7 @@ map("n", "<M-b>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 -- Toggle statusline
 map("n", "<leader>uS", function()
   if o.laststatus:get() == 0 then
-    o.laststatus = 3
+    o.laststatus = 4
   else
     o.laststatus = 0
   end
@@ -163,17 +166,17 @@ map("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window W
 
 -- Incremental Selection
 map({ "n", "x", "o" }, "<A-o>", function()
-	if vim.treesitter.get_parser(nil, nil, { error = false }) then
-		require("vim.treesitter._select").select_parent(vim.v.count1)
-	else
-		vim.lsp.buf.selection_range(vim.v.count1)
-	end
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
 end, { desc = "Select parent treesitter node or outer incremental lsp selections" })
 
 map({ "n", "x", "o" }, "<A-i>", function()
-	if vim.treesitter.get_parser(nil, nil, { error = false }) then
-		require("vim.treesitter._select").select_child(vim.v.count1)
-	else
-		vim.lsp.buf.selection_range(-vim.v.count1)
-	end
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
 end, { desc = "Select child treesitter node or inner incremental lsp selections" })

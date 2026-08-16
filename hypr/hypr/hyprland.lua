@@ -137,14 +137,14 @@ hl.config({
 
 		shadow = {
 			enabled = true,
-			range = 50,
+			range = 60,
 			render_power = 1,
 			sharp = false,
 
 			color = alpha(colors.crustAlpha, "ff"),
 			color_inactive = alpha(colors.mantleAlpha, "ff"),
 
-			offset = { 0, 10 },
+			offset = { 0, 20 },
 			scale = 0.98,
 		},
 

@@ -3,6 +3,7 @@ return {
   opts = function(_, opts)
     opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
+    opts.options.theme = "catppuccin-nvim"
 
     opts.sections.lualine_a = {
       {
