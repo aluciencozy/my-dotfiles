@@ -108,7 +108,7 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = alpha(colors.lavenderAlpha, "b0"),
+			active_border = alpha(colors.lavenderAlpha, "e0"),
 			inactive_border = alpha(colors.textAlpha, "40"),
 		},
 
@@ -118,7 +118,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 4,
+		rounding = 6,
 
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
@@ -135,7 +135,16 @@ hl.config({
 		},
 
 		shadow = {
-			enabled = false,
+			enabled = true,
+			range = 50,
+			render_power = 1,
+			sharp = false,
+
+			color = alpha(colors.crustAlpha, "ff"),
+			color_inactive = alpha(colors.mantleAlpha, "ff"),
+
+			offset = { 0, 10 },
+			scale = 0.98,
 		},
 
 		dim_inactive = false,
