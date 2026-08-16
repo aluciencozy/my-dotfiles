@@ -12,6 +12,7 @@ base-devel
 bash-completion
 bind
 bluedevil
+blueman
 bluez
 bluez-hid2hci
 bluez-libs
@@ -22,6 +23,7 @@ brightnessctl
 btop
 btrfs-assistant
 btrfs-progs
+cachy-update
 cachyos-emerald-kde-theme-git
 cachyos-fish-config
 cachyos-gaming-applications
@@ -45,8 +47,9 @@ cachyos-v3-mirrorlist
 cachyos-v4-mirrorlist
 cachyos-wallpapers
 cachyos-zsh-config
-cachy-update
 cantarell-fonts
+cava
+chafa
 char-white
 chwd
 cmake
@@ -55,7 +58,6 @@ cryptsetup
 device-mapper
 diffutils
 direnv
-discord
 dmidecode
 dmraid
 dnsmasq
@@ -80,6 +82,7 @@ fsarchiver
 fwupd
 ghostty
 git
+git-delta
 github-cli
 glances
 gnome-themes-extra
@@ -106,9 +109,9 @@ iwd
 jfsutils
 kate
 kcalc
+kde-gtk-config
 kdeconnect
 kdegraphics-thumbnailers
-kde-gtk-config
 kdeplasma-addons
 kdialog
 kinfocenter
@@ -117,8 +120,10 @@ kitty
 konsole
 kscreen
 kvantum
-kwalletmanager
 kwallet-pam
+kwalletmanager
+lazydocker
+lazygit
 less
 lib32-nvidia-utils
 lib32-opencl-nvidia
@@ -147,6 +152,7 @@ man-db
 man-pages
 mdadm
 meld
+mermaid-cli
 mesa-utils
 micro
 mkinitcpio
@@ -157,6 +163,7 @@ nano-syntax-highlighting
 nemo
 neovim
 netctl
+network-manager-applet
 networkmanager
 networkmanager-openvpn
 nfs-utils
@@ -196,16 +203,16 @@ plocate
 plymouth
 plymouth-kcm
 poppler-glib
-powerdevil
 power-profiles-daemon
+powerdevil
 pv
 python
 python-defusedxml
 python-packaging
 python-pip
 qt5-wayland
-qt6ct
 qt6-wayland
+qt6ct
 realtime-privileges
 rebuild-detector
 reflector
@@ -213,10 +220,10 @@ ripgrep
 rofi
 rsync
 rustup
+s-nail
 sg3_utils
 shelly
 smartmontools
-s-nail
 snapper
 sof-firmware
 spectacle
@@ -232,6 +239,7 @@ tesseract-data-eng
 texinfo
 tmux
 tree
+tree-sitter-cli
 ttf-bitstream-vera
 ttf-dejavu
 ttf-jetbrains-mono-nerd
@@ -249,9 +257,9 @@ vlc-plugins-all
 vulkan-icd-loader
 waybar
 wev
-wezterm
 wget
 which
+wiremix
 wireplumber
 wl-clipboard
 wpa_supplicant
@@ -261,6 +269,7 @@ xfsprogs
 xl2tpd
 xsettingsd
 yay
+yazi
 zen-browser-bin
 zip
 zoxide

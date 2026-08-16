@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazydocker.json
+
+gui:
+  scrollHeight: 3
+  language: auto
+  wrapMainPanel: true
+  sidePanelWidth: 0.25
+  showBottomLine: true
+  expandFocusedSidePanel: true
+  screenMode: normal
+  containerStatusHealthStyle: long
+  border: rounded
+  theme:
+    activeBorderColor:
+      - "#b7bdf8"
+      - bold
+    inactiveBorderColor:
+      - "#5b6078"
+    optionsTextColor:
+      - "#8aadf4"
+    selectedLineBgColor:
+      - "#363a4f"
+
+logs:
+  timestamps: true
+  since: 60m
+  tail: "300"
+
+oS:
+  openCommand: nvim {{filename}}
+  openLinkCommand: xdg-open {{link}}
+
+stats:
+  graphs:
+    - caption: CPU (%)
+      statPath: DerivedStats.CPUPercentage
+      color: blue
+    - caption: Memory (%)
+      statPath: DerivedStats.MemoryPercentage
+      color: green
+  maxDuration: 3m

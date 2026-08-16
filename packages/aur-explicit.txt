@@ -1,2 +1,5 @@
+legcord-git
 maplemono-nf
+pacseek
+spicetify-cli
 vicinae-bin

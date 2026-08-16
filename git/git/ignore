@@ -1,0 +1,18 @@
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor swap and backup files
+*.swp
+*.swo
+*~
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Common local scratch data
+.direnv/
+.scratch/

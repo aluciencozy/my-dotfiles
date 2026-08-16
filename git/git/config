@@ -1,0 +1,44 @@
+[include]
+	path = themes/catppuccin.gitconfig
+
+[core]
+	editor = nvim
+	pager = delta
+	excludesfile = ~/.config/git/ignore
+
+[interactive]
+	diffFilter = delta --color-only
+
+[init]
+	defaultBranch = main
+
+[delta]
+	features = catppuccin-macchiato
+	dark = true
+	decorations = true
+	hyperlinks = true
+	line-numbers = true
+	navigate = true
+	side-by-side = false
+	true-color = always
+
+[diff]
+	colorMoved = default
+
+[merge]
+	conflictStyle = zdiff3
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
+
+[alias]
+	aliases = config --get-regexp ^alias[.]
+	br = branch
+	co = checkout
+	diffstat = diff --stat
+	last = log -1 HEAD --stat
+	lg = log --graph --date=relative --pretty=format:'%C(auto)%h%d%Creset %s %C(dim white)(%ar, %an)%Creset' --all
+	st = status --short --branch

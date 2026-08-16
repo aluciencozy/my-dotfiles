@@ -1,0 +1,8 @@
+[mgr]
+prepend_keymap = [
+  { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
+  { on = "<C-u>", run = "seek -5", desc = "Preview up" },
+  { on = "<C-d>", run = "seek 5", desc = "Preview down" },
+  { on = ["g", "r"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Go to Git root" },
+  { on = "<C-y>", run = '''shell -- for selected in "$@"; do printf 'file://%s\n' "$selected"; done | wl-copy -t text/uri-list''', desc = "Copy files to clipboard" },
+]

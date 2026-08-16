@@ -1,0 +1,15 @@
+# Version-control metadata
+.git/
+
+# Dependency and environment caches
+node_modules/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Common compiler/build caches
+target/
+.cache/

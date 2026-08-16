@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+gui:
+  scrollHeight: 4
+  scrollPastBottom: false
+  sidePanelWidth: 0.25
+  expandFocusedSidePanel: true
+  enlargedSideViewLocation: top
+  border: rounded
+  nerdFontsVersion: "3"
+  showBottomLine: true
+  showCommandLog: true
+  commandLogSize: 5
+  showNumstatInFilesView: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+  filterMode: fuzzy
+  fileTreeSortOrder: foldersFirst
+  theme:
+    activeBorderColor:
+      - "#b7bdf8"
+      - bold
+    inactiveBorderColor:
+      - "#5b6078"
+    searchingActiveBorderColor:
+      - "#eed49f"
+      - bold
+    optionsTextColor:
+      - "#8aadf4"
+    selectedLineBgColor:
+      - "#363a4f"
+    inactiveViewSelectedLineBgColor:
+      - "#494d64"
+    cherryPickedCommitBgColor:
+      - "#494d64"
+    cherryPickedCommitFgColor:
+      - "#b7bdf8"
+    unstagedChangesColor:
+      - "#ed8796"
+    defaultFgColor:
+      - "#cad3f5"
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never --dark --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  parseEmoji: true
+os:
+  editPreset: nvim
+disableStartupPopups: true
+notARepository: skip
+promptToReturnFromSubprocess: false
+# Lazygit's defaults already provide j/k, h/l, g/G-style navigation.
+keybinding:
+  universal:
+    prevPage: K
+    nextPage: J
+    scrollUpMain-alt1: <c-u>
+    scrollDownMain-alt1: <c-d>

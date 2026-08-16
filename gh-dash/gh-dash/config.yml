@@ -1,0 +1,114 @@
+# yaml-language-server: $schema=https://gh-dash.dev/schema.json
+
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me sort:updated-desc
+  - title: Needs My Review
+    filters: is:open review-requested:@me sort:updated-desc
+  - title: Involved
+    filters: is:open involves:@me -author:@me sort:updated-desc
+
+issuesSections:
+  - title: My Issues
+    filters: is:open author:@me sort:updated-desc
+  - title: Assigned
+    filters: is:open assignee:@me sort:updated-desc
+  - title: Involved
+    filters: is:open involves:@me -author:@me sort:updated-desc
+
+notificationsSections:
+  - title: All
+    filters: ""
+  - title: Participating
+    filters: reason:participating
+  - title: Mentions
+    filters: reason:mention
+  - title: Review Requests
+    filters: reason:review-requested
+
+repo:
+  branchesRefetchIntervalSeconds: 30
+  prsRefetchIntervalSeconds: 60
+
+defaults:
+  preview:
+    open: true
+    width: 0.45
+    height: 0.6
+    position: auto
+  prsLimit: 30
+  issuesLimit: 30
+  notificationsLimit: 30
+  view: prs
+  refetchIntervalMinutes: 15
+  layout:
+    prs:
+      updatedAt:
+        width: 5
+      repo:
+        width: 20
+      author:
+        width: 15
+      labels:
+        width: 22
+        hidden: true
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 12
+    issues:
+      updatedAt:
+        width: 5
+      repo:
+        width: 18
+      creator:
+        width: 14
+      assignees:
+        width: 18
+        hidden: true
+
+# Navigation is vim-style by default: h/j/k/l, g/G, Ctrl-u/Ctrl-d, and /.
+keybindings: {}
+repoPaths: {}
+
+theme:
+  ui:
+    sectionsShowCount: true
+    table:
+      showSeparator: true
+      compact: false
+  colors:
+    icon:
+      newcontributor: "#f5bde6"
+      contributor: "#8bd5ca"
+      collaborator: "#8aadf4"
+      member: "#c6a0f6"
+      owner: "#b7bdf8"
+      unknownrole: "#8087a2"
+    text:
+      primary: "#cad3f5"
+      secondary: "#b7bdf8"
+      inverted: "#24273a"
+      faint: "#8087a2"
+      warning: "#eed49f"
+      success: "#a6da95"
+      error: "#ed8796"
+      actor: "#8aadf4"
+    background:
+      selected: "#363a4f"
+    border:
+      primary: "#b7bdf8"
+      secondary: "#5b6078"
+      faint: "#363a4f"
+
+pager:
+  diff: delta
+
+confirmQuit: false
+showAuthorIcons: true
+smartFilteringAtLaunch: true
+includeReadNotifications: false

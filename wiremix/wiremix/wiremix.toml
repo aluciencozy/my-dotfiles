@@ -1,0 +1,64 @@
+# PipeWire is wiremix's native backend; no server-specific path is needed.
+mouse = true
+peaks = "auto"
+char_set = "default"
+theme = "catppuccin-macchiato"
+tab = "playback"
+tabs = ["playback", "recording", "output", "input", "configuration"]
+max_volume_percent = 125.0
+enforce_max_volume = false
+lazy_capture = true
+
+keybindings = [
+  { key = { Char = "q" }, action = "Exit" },
+  { key = { Char = "j" }, action = "MoveDown" },
+  { key = { Char = "k" }, action = "MoveUp" },
+  { key = { Char = "h" }, action = { SetRelativeVolume = -0.02 } },
+  { key = { Char = "l" }, action = { SetRelativeVolume = 0.02 } },
+  { key = { Char = "H" }, action = "TabLeft" },
+  { key = { Char = "L" }, action = "TabRight" },
+  { key = { Char = "m" }, action = "ToggleMute" },
+  { key = { Char = "d" }, action = "SetDefault" },
+  { key = "Enter", action = "ActivateDropdown" },
+  { key = "Esc", action = "CloseDropdown" },
+  { key = { Char = "?" }, action = "Help" },
+]
+
+[names]
+stream = ["{client:application.name}: {node:media.name}", "{node:node.name}: {node:media.name}"]
+endpoint = ["{device:device.nick}", "{node:node.description}"]
+device = ["{device:device.nick}", "{device:device.description}"]
+
+[themes.catppuccin-macchiato]
+inherit = "default"
+default_device = { fg = "#b7bdf8", add_modifier = "BOLD" }
+default_stream = { fg = "#b7bdf8", add_modifier = "BOLD" }
+selector = { fg = "#b7bdf8" }
+tab = { fg = "#a5adcb" }
+tab_selected = { fg = "#8aadf4", add_modifier = "BOLD" }
+tab_marker = { fg = "#8aadf4" }
+list_more = { fg = "#6e738d" }
+node_title = { fg = "#cad3f5" }
+node_target = { fg = "#8bd5ca" }
+volume = { fg = "#cad3f5" }
+volume_empty = { fg = "#494d64" }
+volume_filled = { fg = "#8aadf4" }
+meter_inactive = { fg = "#494d64" }
+meter_active = { fg = "#a6da95" }
+meter_overload = { fg = "#ed8796" }
+meter_center_inactive = { fg = "#494d64" }
+meter_center_active = { fg = "#a6da95" }
+config_device = { fg = "#cad3f5" }
+config_profile = { fg = "#8bd5ca" }
+dropdown_icon = { fg = "#b7bdf8" }
+dropdown_border = { fg = "#b7bdf8" }
+dropdown_item = { fg = "#cad3f5" }
+dropdown_selected = { fg = "#24273a", bg = "#b7bdf8", add_modifier = "BOLD" }
+dropdown_more = { fg = "#6e738d" }
+help_border = { fg = "#b7bdf8" }
+help_item = { fg = "#cad3f5" }
+help_more = { fg = "#6e738d" }
+
+[char_sets.default]
+dropdown_border = "Rounded"
+help_border = "Rounded"

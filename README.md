@@ -46,12 +46,14 @@ stow nvim
 stow rofi
 stow swaync
 stow tmux
+stow gh-dash git lazygit btop bat fd yazi lazydocker wiremix pacseek cava
 ```
 
 Multiple packages can also be stowed at once:
 
 ```sh
 stow hypr waybar ghostty nvim rofi swaync tmux
+stow gh-dash git lazygit btop bat fd yazi lazydocker wiremix pacseek cava
 ```
 
 The repository `.stowrc` sets the default target to:
@@ -121,3 +123,23 @@ stow -R --target="$HOME" zsh
 `packages/` contains snapshots of explicitly installed Pacman and AUR packages.
 
 `setup/` contains one-time setup scripts and is not intended to be stowed.
+
+## Terminal tools
+
+The repository also manages Catppuccin Macchiato configurations for:
+
+- `gh dash`, Git/delta, and Lazygit
+- btop, bat, fd, and Yazi
+- Lazydocker, Wiremix, Pacseek, and Cava
+
+After stowing `bat`, rebuild its syntax/theme cache once:
+
+```sh
+bat cache --build
+```
+
+`gh-dash` is installed as a GitHub CLI extension rather than a Pacman package:
+
+```sh
+gh extension install dlvhdr/gh-dash
+```
