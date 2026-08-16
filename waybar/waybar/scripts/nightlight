@@ -1,0 +1,141 @@
+#!/usr/bin/env bash
+
+set -u
+
+readonly MIN_TEMPERATURE=2500
+readonly MAX_TEMPERATURE=6500
+readonly TEMPERATURE_STEP=250
+readonly FALLBACK_TEMPERATURE=4500
+readonly ICON="󰖔"
+
+readonly STATE_DIR="${XDG_STATE_HOME:-${HOME}/.local/state}/waybar"
+readonly STATE_FILE="${STATE_DIR}/nightlight"
+readonly LOCK_FILE="${STATE_DIR}/nightlight.lock"
+
+action="${1:-status}"
+enabled=1
+temperature="${FALLBACK_TEMPERATURE}"
+daemon_key=""
+
+print_unavailable() {
+  printf '{"text":"%s","tooltip":"Night Light: hyprsunset unavailable","class":"unavailable"}\n' "${ICON}"
+}
+
+get_temperature() {
+  local value
+
+  value="$(hyprctl hyprsunset temperature 2>/dev/null)" || return 1
+  [[ "${value}" =~ ^[0-9]+$ ]] || return 1
+  printf '%s\n' "${value}"
+}
+
+get_profile_identity() {
+  local value
+
+  value="$(hyprctl hyprsunset profile 2>/dev/null | awk '/^Identity:/ { print $2; exit }')" || return 1
+  [[ "${value}" == "true" ]] && printf '1\n' || printf '0\n'
+}
+
+clamp_temperature() {
+  if (( temperature < MIN_TEMPERATURE )); then
+    temperature="${MIN_TEMPERATURE}"
+  elif (( temperature > MAX_TEMPERATURE )); then
+    temperature="${MAX_TEMPERATURE}"
+  fi
+}
+
+save_state() {
+  local temporary_file="${STATE_FILE}.$$"
+
+  printf '%s %s %s\n' "${enabled}" "${temperature}" "${daemon_key}" > "${temporary_file}"
+  mv -f "${temporary_file}" "${STATE_FILE}"
+}
+
+print_status() {
+  if (( enabled )); then
+    printf '{"text":"%s","tooltip":"Night Light: %sK\\nScroll: adjust by 250K\\nClick: turn off • Right-click: reset","class":"active"}\n' \
+      "${ICON}" "${temperature}"
+  else
+    printf '{"text":"%s","tooltip":"Night Light: Off\\nClick: restore %sK • Right-click: reset","class":"inactive"}\n' \
+      "${ICON}" "${temperature}"
+  fi
+}
+
+install -d -m 700 "${STATE_DIR}" || {
+  print_unavailable
+  exit 0
+}
+
+exec 9>"${LOCK_FILE}"
+flock -x 9
+
+daemon_pid="$(pgrep -xo hyprsunset 2>/dev/null || true)"
+if [[ -z "${daemon_pid}" ]] || [[ ! -r "/proc/${daemon_pid}/stat" ]]; then
+  print_unavailable
+  exit 0
+fi
+
+daemon_key="$(awk '{ print $22 }' "/proc/${daemon_pid}/stat" 2>/dev/null)"
+current_temperature="$(get_temperature)" || {
+  print_unavailable
+  exit 0
+}
+
+if read -r saved_enabled saved_temperature saved_daemon_key 2>/dev/null < "${STATE_FILE}" \
+  && [[ "${saved_enabled}" =~ ^[01]$ ]] \
+  && [[ "${saved_temperature}" =~ ^[0-9]+$ ]] \
+  && [[ "${saved_daemon_key}" == "${daemon_key}" ]]; then
+  enabled="${saved_enabled}"
+  temperature="${saved_temperature}"
+
+  if (( enabled )); then
+    temperature="${current_temperature}"
+  fi
+else
+  temperature="${current_temperature}"
+  profile_identity="$(get_profile_identity || printf '0\n')"
+  enabled=$(( 1 - profile_identity ))
+fi
+
+clamp_temperature
+
+case "${action}" in
+  status)
+    ;;
+  toggle)
+    if (( enabled )); then
+      temperature="${current_temperature}"
+      clamp_temperature
+      hyprctl hyprsunset identity >/dev/null || exit 1
+      enabled=0
+    else
+      hyprctl hyprsunset temperature "${temperature}" >/dev/null || exit 1
+      enabled=1
+    fi
+    ;;
+  cooler)
+    temperature=$(( current_temperature + TEMPERATURE_STEP ))
+    clamp_temperature
+    hyprctl hyprsunset temperature "${temperature}" >/dev/null || exit 1
+    enabled=1
+    ;;
+  warmer)
+    temperature=$(( current_temperature - TEMPERATURE_STEP ))
+    clamp_temperature
+    hyprctl hyprsunset temperature "${temperature}" >/dev/null || exit 1
+    enabled=1
+    ;;
+  reset)
+    hyprctl hyprsunset reset >/dev/null || exit 1
+    temperature="$(get_temperature)" || exit 1
+    profile_identity="$(get_profile_identity || printf '0\n')"
+    enabled=$(( 1 - profile_identity ))
+    ;;
+  *)
+    printf 'Usage: %s {status|toggle|reset|cooler|warmer}\n' "${0##*/}" >&2
+    exit 2
+    ;;
+esac
+
+save_state
+print_status

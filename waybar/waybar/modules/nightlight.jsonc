@@ -1,0 +1,12 @@
+{
+  "custom/nightlight": {
+    "exec": "~/.config/waybar/scripts/nightlight status",
+    "return-type": "json",
+    "interval": 5,
+    "exec-on-event": true,
+    "on-click": "~/.config/waybar/scripts/nightlight toggle",
+    "on-click-right": "~/.config/waybar/scripts/nightlight reset",
+    "on-scroll-up": "~/.config/waybar/scripts/nightlight cooler",
+    "on-scroll-down": "~/.config/waybar/scripts/nightlight warmer"
+  }
+}

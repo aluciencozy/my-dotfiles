@@ -1,0 +1,42 @@
+{
+  "custom/distro": {
+    "format": "",
+    "tooltip": false,
+  },
+
+  "custom/terminal": {
+    "format": "󰆍",
+    "on-click": "ghostty",
+    "tooltip-format": "Ghostty",
+  },
+
+  "custom/editor": {
+    "format": "",
+    "on-click": "ghostty -e nvim",
+    "tooltip-format": "Neovim",
+  },
+
+  "custom/files": {
+    "format": "",
+    "on-click": "nemo",
+    "tooltip-format": "Files",
+  },
+
+  "custom/discord": {
+    "format": "󰙯",
+    "on-click": "legcord",
+    "tooltip-format": "Legcord",
+  },
+
+  "custom/spotify": {
+    "format": "",
+    "on-click": "spotify-launcher",
+    "tooltip-format": "Spotify",
+  },
+
+  "custom/browser": {
+    "format": "󰖟",
+    "on-click": "zen-browser",
+    "tooltip-format": "Zen Browser",
+  },
+}

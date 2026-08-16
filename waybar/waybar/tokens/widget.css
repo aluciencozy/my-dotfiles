@@ -1,0 +1,121 @@
+@import "colors.css";
+
+/*======= MODULE INDEPENDENT =======*/
+#distro-group {
+  margin: 4px 5px;
+  background-color: @surface0;
+  border-radius: 20px;
+  color: @lavender;
+}
+
+#custom-distro {
+  color: @lavender;
+  /* Optical correction for the Arch glyph's right-heavy side bearing. */
+  padding: 4px 15px 4px 9px;
+}
+
+#custom-terminal,
+#custom-editor,
+#custom-files,
+#custom-discord,
+#custom-spotify,
+#custom-browser {
+  padding: 0 10px;
+}
+
+#custom-terminal {
+  color: @green;
+}
+
+#custom-editor {
+  color: @blue;
+}
+
+#custom-discord {
+  color: @mauve;
+}
+
+#custom-files {
+  color: @yellow;
+}
+
+#custom-spotify {
+  color: @green;
+}
+
+#custom-browser {
+  color: @peach;
+  /* Match the expanded drawer's outer edge to the Arch-side padding. */
+  padding-right: 15px;
+}
+
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-nightlight {
+  margin: 4px 5px;
+  padding: 4px 12px;
+  background-color: @surface0;
+  border-radius: 20px;
+  color: @text;
+}
+
+#power-profiles-daemon,
+#idle_inhibitor {
+  /* Keep the capsule width while shifting these right-heavy glyphs left. */
+  padding: 4px 15px 4px 9px;
+}
+
+#custom-nightlight {
+  padding: 4px 13px 4px 11px;
+}
+
+/*======= MODULE CAPSUL =======*/
+#audio,
+#connections,
+#system,
+#storage {
+  margin: 4px 5px;
+  padding: 4px 6px;
+  background-color: @surface0;
+  border-radius: 20px;
+  color: @text;
+}
+
+#disk,
+#memory,
+#cpu,
+#temperature,
+#bluetooth {
+  padding: 0 8px;
+}
+
+#network {
+  /* The wired-network glyph is optically right of its font advance center. */
+  padding: 0 12px 0 4px;
+}
+
+#pulseaudio {
+  padding: 0 9px 0 7px;
+}
+
+/*======= TRAY =======*/
+#tray-group {
+  margin: 4px 5px;
+  background-color: @surface0;
+  border-radius: 20px;
+}
+
+#custom-tray-arrow {
+  padding: 4px 13px 4px 11px;
+  color: @lavender;
+}
+
+#tray {
+  padding: 6px 10px;
+}
+
+#tray>.passive,
+#tray>.active,
+#tray>.needs-attention {
+  -gtk-icon-effect: none;
+}
