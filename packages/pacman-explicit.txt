@@ -23,6 +23,7 @@ brightnessctl
 btop
 btrfs-assistant
 btrfs-progs
+cachy-update
 cachyos-emerald-kde-theme-git
 cachyos-fish-config
 cachyos-gaming-applications
@@ -46,7 +47,6 @@ cachyos-v3-mirrorlist
 cachyos-v4-mirrorlist
 cachyos-wallpapers
 cachyos-zsh-config
-cachy-update
 cantarell-fonts
 cava
 chafa
@@ -109,9 +109,9 @@ iwd
 jfsutils
 kate
 kcalc
+kde-gtk-config
 kdeconnect
 kdegraphics-thumbnailers
-kde-gtk-config
 kdeplasma-addons
 kdialog
 kinfocenter
@@ -120,8 +120,8 @@ kitty
 konsole
 kscreen
 kvantum
-kwalletmanager
 kwallet-pam
+kwalletmanager
 lazydocker
 lazygit
 less
@@ -163,8 +163,8 @@ nano-syntax-highlighting
 nemo
 neovim
 netctl
-networkmanager
 network-manager-applet
+networkmanager
 networkmanager-openvpn
 nfs-utils
 nilfs-utils
@@ -203,16 +203,16 @@ plocate
 plymouth
 plymouth-kcm
 poppler-glib
-powerdevil
 power-profiles-daemon
+powerdevil
 pv
 python
 python-defusedxml
 python-packaging
 python-pip
 qt5-wayland
-qt6ct
 qt6-wayland
+qt6ct
 realtime-privileges
 rebuild-detector
 reflector
@@ -220,10 +220,10 @@ ripgrep
 rofi
 rsync
 rustup
+s-nail
 sg3_utils
 shelly
 smartmontools
-s-nail
 snapper
 sof-firmware
 spectacle
@@ -255,7 +255,6 @@ usbutils
 vim
 vlc-plugins-all
 vulkan-icd-loader
-waybar
 wev
 wget
 which

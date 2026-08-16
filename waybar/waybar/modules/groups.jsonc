@@ -23,6 +23,14 @@
     "orientation": "horizontal",
     "modules": ["temperature", "cpu"],
   },
+  "group/media": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": ["cava", "mpris"],
+  },
   "group/audio": {
     "orientation": "horizontal",
     "drawer": {

@@ -18,6 +18,7 @@
     "./modules/workspace.jsonc",
     "./modules/idle-inhibitor.jsonc",
     "./modules/nightlight.jsonc",
+    "./modules/media.jsonc",
     "./modules/audio.jsonc",
     "./modules/connections.jsonc",
     "./modules/battery.jsonc",
@@ -32,6 +33,7 @@
     "custom/nightlight",
   ],
   "modules-right": [
+    "group/media",
     "group/audio",
     "group/connections",
     "battery",

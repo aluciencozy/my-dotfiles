@@ -69,6 +69,29 @@
   padding: 4px 13px 4px 11px;
 }
 
+/*======= MEDIA =======*/
+#media {
+  margin: 4px 5px;
+  background-color: @surface0;
+  border-radius: 20px;
+  color: @text;
+}
+
+#cava {
+  padding: 4px 12px;
+  color: @mauve;
+  font-size: 14px;
+}
+
+#mpris {
+  padding: 4px 0 4px 12px;
+  color: @text;
+}
+
+#mpris.paused {
+  color: @subtext0;
+}
+
 /*======= MODULE CAPSUL =======*/
 #audio,
 #connections,

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -u
+
+if hyprctl clients -j 2>/dev/null \
+  | grep -Eiq '"class"[[:space:]]*:[[:space:]]*"spotify"'; then
+  exec hyprctl dispatch focuswindow "class:^([Ss]potify)$"
+fi
+
+exec spotify-launcher

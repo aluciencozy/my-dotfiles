@@ -9,8 +9,9 @@
     "window-rewrite": {
       // --- Work ---
       "kitty": "󰆍",
+      "com.mitchellh.ghostty": "󰆍",
       "onlyoffice": "󰏆",
-      "firefox": "",
+      "zen": "󰖟",
       "code": "󰨞",
       "azahar": "",
       "obsidian": "󰹕",
