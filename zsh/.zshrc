@@ -53,6 +53,12 @@ bindkey '^f' autosuggest-accept
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Vim-style shell editing
+bindkey -v
+KEYTIMEOUT=1
+
+# Ctrl+F accepts autosuggestion while typing
+bindkey -M viins '^F' autosuggest-accept
 
 # ---------------------------------------------------------
 # Navigation

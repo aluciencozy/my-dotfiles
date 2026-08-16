@@ -5,7 +5,7 @@ palette = "catppuccin_mocha"
 command_timeout = 2000
 
 [character]
-vicmd_symbol = "[N] >>>"
+vicmd_symbol = "[N](bold yellow) >>>"
 success_symbol = '[➜](bold green)'
 
 [directory.substitutions]
@@ -17,7 +17,7 @@ success_symbol = '[➜](bold green)'
 [git_branch]
 style = 'fg:teal'
 symbol = ' '
-format = '[$symbol$branch(:$remote_branch)]($style)'
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [python]
 style = 'fg:peach'
@@ -76,12 +76,12 @@ detect_extensions = ['Dockerfile']
 symbol = ' '
 style = 'fg:red'
 number_threshold = 1
-format = '[$symbol]($style)'
+format = '[$symbol]($style) '
 
 [cmd_duration]
 min_time = 500
 style = 'fg:overlay0'
-format = '[$duration]($style)'
+format = '[$duration]($style) '
 
 [palettes.catppuccin_mocha]
 rosewater = '#f5e0dc'
