@@ -1,145 +1,76 @@
 # Dotfiles
 
-My personal CachyOS / Hyprland dotfiles.
+Personal recovery snapshot for a CachyOS/Arch + Hyprland setup. Packages are recorded in `packages/`; GNU Stow manages the configs.
 
-Configurations are managed with [GNU Stow](https://www.gnu.org/software/stow/) and linked into `~/.config`.
+## Prerequisites
 
-## Structure
+A working network connection, `sudo`, and `git`. The manifests target CachyOS and this machine's hardware; on plain Arch or different hardware, review the CachyOS, NVIDIA, and Intel packages before installing.
 
-Most directories in this repository are individual Stow packages.
+## Fresh install
 
-For example:
+1. Clone the repo.
 
-```text
-hypr/
-└── hypr/
-    └── hyprland.lua
+   ```sh
+   git clone https://github.com/aluciencozy/my-dotfiles.git ~/github/dotfiles
+   cd ~/github/dotfiles
+   ```
 
-waybar/
-└── waybar/
-    └── config.jsonc
+2. Install the native packages, then the AUR packages.
 
-ghostty/
-└── ghostty/
-    └── config.ghostty
-```
+   ```sh
+   sudo pacman -Syu --needed - < packages/pacman-explicit.txt
+   yay -S --needed - < packages/aur-explicit.txt
+   ```
 
-With `~/.config` as the Stow target, these become:
+3. Stow the configs. `.stowrc` already targets `~/.config`; the second command handles the packages that belong in `$HOME`.
 
-```text
-~/.config/hypr/hyprland.lua
-~/.config/waybar/config.jsonc
-~/.config/ghostty/config.ghostty
-```
+   ```sh
+   stow atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk \
+     hypr kitty kvantum lazydocker lazygit nvim pacseek rofi starship swaync \
+     television tmux waybar wiremix yazi
+   stow --target="$HOME" cursor-theme gtk-theme zsh
+   ```
 
-## Stowing configs
+4. Complete the relevant manual setup below. Before starting Hyprland on another machine, replace the fixed `DP-1`/`HDMI-A-1` layout in `hypr/hypr/monitors.lua`.
 
-Run commands from the repository root.
+## Manual setup
 
-Stow individual packages:
+- Install [Catppuccin-SE icons](https://github.com/ljmill/catppuccin-icons) into `~/.local/share/icons`, then apply the bundled themes:
 
-```sh
-stow hypr
-stow waybar
-stow ghostty
-stow nvim
-stow rofi
-stow swaync
-stow tmux
-stow gh-dash git lazygit btop bat fd yazi lazydocker wiremix pacseek cava
-```
+  ```sh
+  ./setup/cursor.sh
+  ./setup/gtk.sh
+  ```
 
-Multiple packages can also be stowed at once:
+- Build Bat's theme cache and install the external CLI plugins:
 
-```sh
-stow hypr waybar ghostty nvim rofi swaync tmux
-stow gh-dash git lazygit btop bat fd yazi lazydocker wiremix pacseek cava
-```
+  ```sh
+  bat cache --build
+  gh extension install dlvhdr/gh-dash
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+  ```
 
-The repository `.stowrc` sets the default target to:
+- For Zen, find the active profile directory in `about:support`, then run:
 
-```text
-~/.config
-```
+  ```sh
+  ZEN_PROFILE="/absolute/path/to/profile"
+  stow --target="$ZEN_PROFILE" browser
+  ```
 
-### Zsh
+- Install Adwaita for Steam with Catppuccin Macchiato:
 
-Zsh is the exception because `.zshrc` belongs directly in the home directory:
+  ```sh
+  git clone https://github.com/tkashkin/Adwaita-for-Steam ~/github/Adwaita-for-Steam
+  (cd ~/github/Adwaita-for-Steam && ./install.py -c catppuccin-macchiato)
+  ```
 
-```sh
-stow --target="$HOME" zsh
-```
+- If needed, make Zsh the login shell: `chsh -s /bin/zsh`.
 
-### Starship
-
-There are two Starship configurations. Only one should be stowed at a time:
+## Updating
 
 ```sh
-stow starship-custom
-```
-
-or:
-
-```sh
-stow starship-omer
-```
-
-## Removing configs
-
-Unstow an individual package:
-
-```sh
-stow -D hypr
-```
-
-Multiple packages:
-
-```sh
-stow -D hypr waybar ghostty
-```
-
-For Zsh:
-
-```sh
-stow -D --target="$HOME" zsh
-```
-
-## Restowing configs
-
-If links need to be recreated:
-
-```sh
-stow -R hypr
-```
-
-or for Zsh:
-
-```sh
-stow -R --target="$HOME" zsh
-```
-
-## Other directories
-
-`packages/` contains snapshots of explicitly installed Pacman and AUR packages.
-
-`setup/` contains one-time setup scripts and is not intended to be stowed.
-
-## Terminal tools
-
-The repository also manages Catppuccin Macchiato configurations for:
-
-- `gh dash`, Git/delta, and Lazygit
-- btop, bat, fd, and Yazi
-- Lazydocker, Wiremix, Pacseek, and Cava
-
-After stowing `bat`, rebuild its syntax/theme cache once:
-
-```sh
-bat cache --build
-```
-
-`gh-dash` is installed as a GitHub CLI extension rather than a Pacman package:
-
-```sh
-gh extension install dlvhdr/gh-dash
+yay -Syu
+pacman -Qqen > packages/pacman-explicit.txt
+pacman -Qqem > packages/aur-explicit.txt
 ```

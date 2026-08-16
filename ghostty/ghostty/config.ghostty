@@ -9,7 +9,7 @@ cursor-style-blink = true
 cursor-invert-fg-bg = false
 
 custom-shader = ~/.config/ghostty/shaders/shader.glsl
-custom-shader-animation = always
+custom-shader-animation = true
 
 gtk-single-instance = true
 window-theme = system
