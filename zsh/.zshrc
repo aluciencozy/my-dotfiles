@@ -165,15 +165,6 @@ eval "$(starship init zsh)"
 
 
 # ---------------------------------------------------------
-# Starship config switching
-# ---------------------------------------------------------
-
-alias starship-which='basename "$(dirname "$(readlink -f ~/.config/starship.toml)")"'
-alias starship-omer='cd ~/github/dotfiles && stow -D starship-custom 2>/dev/null; stow starship-omer'
-alias starship-custom='cd ~/github/dotfiles && stow -D starship-omer 2>/dev/null; stow starship-custom'
-
-
-# ---------------------------------------------------------
 # Machine-specific helpers
 # ---------------------------------------------------------
 
