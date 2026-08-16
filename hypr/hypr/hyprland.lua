@@ -501,6 +501,18 @@ hl.bind(secondMod .. " + j", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(secondMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
+hl.bind(
+	mainMod .. " + F",
+	hl.dsp.window.fullscreen({
+		mode = "fullscreen",
+		action = "toggle",
+	}),
+	{
+		dont_inhibit = true,
+		allow_input_capture = true,
+	}
+)
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
