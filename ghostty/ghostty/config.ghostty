@@ -2,11 +2,14 @@ theme = Catppuccin Macchiato
 
 font-family = Dotfiles Mono
 font-style = ExtraBold
-font-size = 14
+font-size = 13
 
 cursor-style = block
 cursor-style-blink = true
 cursor-invert-fg-bg = false
+
+custom-shader = ~/.config/ghostty/shaders/shader.glsl
+custom-shader-animation = always
 
 gtk-single-instance = true
 window-theme = system
