@@ -31,7 +31,7 @@ A working network connection, `sudo`, and `git`. The manifests target CachyOS an
    stow --target="$HOME" cursor-theme gtk-theme zsh
    ```
 
-4. Complete the relevant manual setup below. Before starting Hyprland on another machine, replace the fixed `DP-1`/`HDMI-A-1` layout in `hypr/hypr/monitors.lua`.
+4. Complete the relevant manual setup below. The monitor config applies the fixed desktop layout when those outputs are connected and falls back to automatic placement on other machines.
 
 ## Manual setup
 

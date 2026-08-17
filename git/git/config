@@ -42,3 +42,11 @@
 	last = log -1 HEAD --stat
 	lg = log --graph --date=relative --pretty=format:'%C(auto)%h%d%Creset %s %C(dim white)(%ar, %an)%Creset' --all
 	st = status --short --branch
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = aluciencozy22@gmail.com
