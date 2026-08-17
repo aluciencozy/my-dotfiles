@@ -73,8 +73,12 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
+hl.env("HYPRCURSOR_THEME", "catppuccin-macchiato-dark-cursors")
+hl.env("HYPRCURSOR_SIZE", "24")
+
 hl.env("XCURSOR_THEME", "catppuccin-macchiato-dark-cursors")
 hl.env("XCURSOR_SIZE", "24")
+
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -----------------------
