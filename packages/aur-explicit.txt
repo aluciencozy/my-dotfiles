@@ -1,3 +1,5 @@
+bibata-cursor-theme-bin
+googledot-cursor-theme
 legcord-git
 maplemono-nf
 pacseek
