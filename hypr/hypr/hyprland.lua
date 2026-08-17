@@ -59,7 +59,7 @@ local notis = "swaync-client -t"
 hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
 	hl.exec_cmd("nm-applet")
-	hl.exec_cmd("waybar")
+	hl.exec_cmd("~/.config/waybar/scripts/start")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd(browser)
 	hl.exec_cmd("swaync")
@@ -452,7 +452,7 @@ hl.config({
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
 		touchpad = {
-			natural_scroll = false,
+			natural_scroll = true,
 			scroll_factor = 0.2,
 		},
 	},

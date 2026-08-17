@@ -1,0 +1,5 @@
+@import "style.css";
+
+#pulseaudio-slider trough {
+  min-width: 50px;
+}

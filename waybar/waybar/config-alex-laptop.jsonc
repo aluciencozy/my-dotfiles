@@ -1,0 +1,12 @@
+{
+  "expand-right": true,
+  "group/media": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": ["mpris"],
+  },
+  "include": ["./config.jsonc"],
+}

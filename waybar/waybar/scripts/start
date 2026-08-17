@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/waybar"
+readonly host_name="$(hostname)"
+readonly host_config="${config_dir}/config-${host_name}.jsonc"
+readonly host_style="${config_dir}/style-${host_name}.css"
+
+if [[ -f "${host_config}" && -f "${host_style}" ]]; then
+  exec waybar -c "${host_config}" -s "${host_style}"
+fi
+
+exec waybar
