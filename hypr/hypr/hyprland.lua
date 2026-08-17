@@ -18,6 +18,16 @@ require("monitors")
 
 local colors = require("themes.catppuccin-macchiato")
 
+local hostname_file = io.open("/etc/hostname", "r")
+if hostname_file then
+	local hostname = hostname_file:read("*l")
+	hostname_file:close()
+
+	if hostname == "alex-laptop" then
+		hl.env("HYPRLOCK_LAPTOP", "1")
+	end
+end
+
 local function alpha(hex, opacity)
 	return "rgba(" .. hex .. opacity .. ")"
 end
