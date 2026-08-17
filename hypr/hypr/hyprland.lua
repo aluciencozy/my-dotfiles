@@ -534,14 +534,17 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+-- Screenshot
 hl.bind(
 	secondMod .. " + S",
 	hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"),
 	{ description = "Screenshot region to clipboard" }
 )
 
+-- Lock screen
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
+-- Power menu
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/rofi/scripts/powermenu/powermenu"))
 
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-picker"))
@@ -586,6 +589,13 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-- Custom microphone mute
+hl.bind("ALT + Q", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), {
+	description = "Toggle microphone mute",
+	dont_inhibit = true,
+	allow_input_capture = true,
+})
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -656,4 +666,16 @@ hl.window_rule({
 
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+hl.window_rule({
+	match = {
+		workspace = "1",
+	},
+	float = true,
+	size = {
+		"monitor_w * 0.6",
+		"monitor_h * 0.6",
+	},
+	center = true,
 })
