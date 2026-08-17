@@ -120,6 +120,7 @@ kitty
 konsole
 kscreen
 kvantum
+kvantum-qt5
 kwallet-pam
 kwalletmanager
 lazydocker

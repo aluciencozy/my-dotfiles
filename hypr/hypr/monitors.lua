@@ -1,4 +1,6 @@
--- Desktop layout. These rules are ignored when the outputs are disconnected.
+-- Output-aware configuration shared by every machine. Specific desktop rules
+-- win when those outputs exist; the wildcard is the safe laptop/unknown fallback.
+-- Keep the wildcard last and do not replace this file during laptop restores.
 hl.monitor({
 	output = "HDMI-A-1",
 	mode = "1920x1080@165.0",
