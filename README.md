@@ -42,8 +42,7 @@ Use this order on a new machine; the detailed sections below explain each step a
 ./setup/gtk.sh
 ./setup/cursor.sh
 
-# 4. Link the active Zen profile, then verify the restore.
-./setup/zen.sh "/absolute/path/from/about:support"
+# 4. Verify the restore.
 ./setup/check.sh
 ```
 
@@ -157,46 +156,6 @@ sudo pacman -S --needed qt6ct kvantum kvantum-qt5
 ```
 
 Hyprland exports `QT_QPA_PLATFORMTHEME=qt6ct`. Open `qt6ct`, select the `kvantum` style, choose `JetBrainsMono Nerd Font` if desired, and apply. The stowed Kvantum config selects `catppuccin-macchiato-lavender`.
-
-## Zen Browser
-
-Install Zen, open `about:support`, and copy the **Profile Directory** for the active profile. Close Zen before linking files:
-
-```sh
-yay -S --needed zen-browser-bin
-./setup/zen.sh "/absolute/path/to/Default (release)"
-```
-
-With exactly one `*.Default*` directory, `./setup/zen.sh` can discover it. Otherwise it lists candidates and requires an explicit path. The helper creates these exact links and refuses to overwrite existing files:
-
-```text
-<profile>/chrome/userChrome.css
-<profile>/chrome/userContent.css
-<profile>/chrome/zen-themes.css
-<profile>/user.js
-```
-
-`<profile>/chrome` must be a real directory. A `chrome/chrome -> repo/browser/chrome` nesting is wrong; the helper detects and refuses a directory symlink so that mistake is not repeated.
-
-### Betterfox preferences
-
-`browser/user.js` is a Betterfox-based preference set, not merely appearance theming. Read it before enabling it. Zen applies `user.js` preferences at startup, so changing the same preference in `about:config` can be overwritten on the next launch.
-
-The file already enables:
-
-```text
-toolkit.legacyUserProfileCustomizations.stylesheets = true
-```
-
-Restart Zen after linking so the preferences and CSS load.
-
-### Stylus userstyles (optional)
-
-Install the Stylus extension and import the Catppuccin userstyles `import.json`. In Stylus, use:
-
-- Patch CSP to allow style assets: **on**
-- Patch CSP only on matching sites: **on**
-- Circumvent CSP `style-src` with adopted stylesheets: **off**
 
 ## Surface Laptop 5 (optional)
 

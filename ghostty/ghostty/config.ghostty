@@ -1,4 +1,4 @@
-theme = Catppuccin Macchiato
+theme = Catppuccin Mocha
 
 font-family = Dotfiles Mono
 font-style = ExtraBold
@@ -8,8 +8,6 @@ cursor-style = block
 cursor-style-blink = true
 cursor-invert-fg-bg = false
 
-custom-shader = ~/.config/ghostty/shaders/shader.glsl
-custom-shader-animation = true
 
 gtk-single-instance = true
 window-theme = system
@@ -28,3 +26,5 @@ shell-integration-features = no-cursor
 copy-on-select = clipboard
 resize-overlay = never
 window-save-state = never
+
+shell-integration-features = ssh-env,ssh-terminfo

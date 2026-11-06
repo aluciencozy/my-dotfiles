@@ -3,12 +3,6 @@ local o = vim.opt
 
 local lazy = require("lazy")
 
--- Search current word
-local searching_brave = function()
-  vim.fn.system({ "xdg-open", "https://search.brave.com/search?q=" .. vim.fn.expand("<cword>") })
-end
-map("n", "<leader>?", searching_brave, { noremap = true, silent = true, desc = "Search Current Word on Brave Search" })
-
 -- Lazy options
 map("n", "<leader>l", "<Nop>")
 map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })

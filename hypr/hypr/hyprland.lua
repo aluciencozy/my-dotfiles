@@ -40,7 +40,6 @@ end
 local terminal = "ghostty"
 local fileManager = "nemo"
 local music = "spotify-launcher"
-local browser = "zen-browser"
 local launcher = "rofi -show drun -show-icons"
 local runner = "rofi -show run"
 local notis = "swaync-client -t"
@@ -55,14 +54,14 @@ local notis = "swaync-client -t"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd(terminal)
+	-- hl.exec_cmd(terminal)
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("~/.config/waybar/scripts/start")
 	hl.exec_cmd("awww-daemon")
-	hl.exec_cmd(browser)
 	hl.exec_cmd("swaync")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hypridle")
+	hl.exec_cmd("swayosd-server")
 end)
 
 -------------------------------
@@ -82,6 +81,9 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.config({
 	cursor = {
 		enable_hyprcursor = false,
+	},
+	xwayland = {
+		force_zero_scaling = true,
 	},
 })
 
@@ -110,8 +112,8 @@ hl.config({
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 15,
-		gaps_out = 15,
+		gaps_in = 8,
+		gaps_out = 12,
 
 		border_size = 2,
 
@@ -479,7 +481,6 @@ local secondMod = "SUPER + SHIFT"
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(music))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notis))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
@@ -559,38 +560,51 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-pic
 hl.bind(secondMod .. " + D", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-random"))
 
 -- Scrolling layout controls
-hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + comma", hl.dsp.layout("colresize -conf"))
-
-hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("swapcol l"))
-
-hl.bind(mainMod .. " + G", hl.dsp.layout("promote"))
-hl.bind(mainMod .. " + SHIFT + G", hl.dsp.layout("fit visible"))
+-- hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"))
+-- hl.bind(mainMod .. " + comma", hl.dsp.layout("colresize -conf"))
+--
+-- hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("swapcol r"))
+-- hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("swapcol l"))
+--
+-- hl.bind(mainMod .. " + G", hl.dsp.layout("promote"))
+-- hl.bind(mainMod .. " + SHIFT + G", hl.dsp.layout("fit visible"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
 	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume raise"),
 	{ locked = true, repeating = true }
 )
+
 hl.bind(
 	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume lower"),
 	{ locked = true, repeating = true }
 )
+
 hl.bind(
 	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
+
 hl.bind(
 	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("swayosd-client --brightness raise"),
+	{ locked = true, repeating = true }
+)
+
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("swayosd-client --brightness lower"),
+	{ locked = true, repeating = true }
+)
 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })

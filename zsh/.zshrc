@@ -102,6 +102,7 @@ fi
 alias lg='lazygit'
 alias m='git switch main'
 alias pre='git switch pre-prod'
+alias gs='git status --short'
 
 
 # ---------------------------------------------------------

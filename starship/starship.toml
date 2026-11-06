@@ -19,6 +19,9 @@ style = 'fg:teal'
 symbol = ' '
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
+[gcloud]
+disabled = true
+
 [python]
 style = 'fg:peach'
 symbol = ' '

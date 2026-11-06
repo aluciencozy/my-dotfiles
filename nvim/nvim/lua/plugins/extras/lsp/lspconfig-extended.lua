@@ -16,6 +16,9 @@ return {
         enabled = false,
       },
       servers = {
+        clangd = {
+          mason = false,
+        },
         ["*"] = {
           keys = {
             { prefix, false },

@@ -19,6 +19,7 @@
     "plugins.extras.editor.marks.grapple",
     "plugins.extras.editor.treesitter-extended",
     "plugins.extras.lang.docker-extended",
+    "plugins.extras.lang.flutter-extended",
     "plugins.extras.lang.markdown-extended",
     "plugins.extras.lang.python-extended",
     "plugins.extras.lang.rust-extended",

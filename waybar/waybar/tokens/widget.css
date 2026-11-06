@@ -18,8 +18,7 @@
 #custom-editor,
 #custom-files,
 #custom-discord,
-#custom-spotify,
-#custom-browser {
+#custom-spotify {
   padding: 0 10px;
 }
 
@@ -41,12 +40,6 @@
 
 #custom-spotify {
   color: @green;
-}
-
-#custom-browser {
-  color: @peach;
-  /* Match the expanded drawer's outer edge to the Arch-side padding. */
-  padding-right: 15px;
 }
 
 #power-profiles-daemon,

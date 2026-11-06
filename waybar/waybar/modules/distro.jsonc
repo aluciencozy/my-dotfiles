@@ -33,10 +33,4 @@
     "on-click": "spotify-launcher",
     "tooltip-format": "Spotify",
   },
-
-  "custom/browser": {
-    "format": "󰖟",
-    "on-click": "zen-browser",
-    "tooltip-format": "Zen Browser",
-  },
 }

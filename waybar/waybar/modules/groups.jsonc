@@ -12,7 +12,6 @@
       "custom/files",
       "custom/discord",
       "custom/spotify",
-      "custom/browser",
     ],
   },
   "group/storage": {
