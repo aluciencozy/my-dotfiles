@@ -115,7 +115,6 @@ kdeplasma-addons
 kdialog
 kinfocenter
 kio-admin
-kitty
 konsole
 kscreen
 kvantum

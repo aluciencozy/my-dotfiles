@@ -84,12 +84,12 @@ Manual equivalent:
 
 ```sh
 stow --no-folding atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk \
-  hypr kitty kvantum lazydocker lazygit nvim pacseek rofi starship swaync \
+  hypr kvantum lazydocker lazygit nvim pacseek rofi starship swaync \
   television tmux waybar wiremix yazi
 stow --no-folding --target="$HOME" gtk-theme zsh
 ```
 
-`cursor-theme/` is retained as a legacy snapshot but is not part of the active restore. The current cursor is Bibata.
+The current cursor is Bibata.
 
 ## Desktop and laptop monitors
 

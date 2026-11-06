@@ -7,7 +7,7 @@ readonly config_target="${XDG_CONFIG_HOME:-${HOME}/.config}"
 
 readonly -a config_packages=(
   atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk
-  hypr kitty kvantum lazydocker lazygit nvim pacseek rofi starship swaync
+  hypr kvantum lazydocker lazygit nvim pacseek rofi starship swaync
   television tmux waybar wiremix yazi
 )
 readonly -a home_packages=(gtk-theme zsh)

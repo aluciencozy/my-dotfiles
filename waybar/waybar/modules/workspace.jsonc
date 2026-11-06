@@ -8,7 +8,6 @@
     "window-rewrite-default": "󰊠",
     "window-rewrite": {
       // --- Work ---
-      "kitty": "󰆍",
       "com.mitchellh.ghostty": "󰆍",
       "onlyoffice": "󰏆",
       "code": "󰨞",

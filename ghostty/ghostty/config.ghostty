@@ -1,30 +1,20 @@
-theme = Catppuccin Mocha
-
+# Appearance
+theme = rose-pine-moon
 font-family = Dotfiles Mono
 font-style = ExtraBold
 font-size = 12
 
-cursor-style = block
-cursor-style-blink = true
-cursor-invert-fg-bg = false
-
-
-gtk-single-instance = true
+# Window
 window-theme = system
-gtk-titlebar = false
+# gtk-titlebar = false
 gtk-wide-tabs = false
-
 mouse-hide-while-typing = true
 confirm-close-surface = false
 
-window-padding-x = 20
-window-padding-y = 20
-window-padding-balance = true
-
-# Extras
-shell-integration-features = no-cursor
+# Behavior
 copy-on-select = clipboard
 resize-overlay = never
-window-save-state = never
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 
-shell-integration-features = ssh-env,ssh-terminfo
+# Optional transparency
+# background-opacity = 0.9
