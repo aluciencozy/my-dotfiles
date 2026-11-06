@@ -12,6 +12,7 @@ local disabled = {
   { "folke/noice.nvim" },
   { "folke/trouble.nvim" },
   { "folke/tokyonight.nvim" },
+  { "catppuccin/nvim", name = "catppuccin" },
   { "linux-cultist/venv-selector.nvim" },
   { "folke/persistence.nvim" },
 }
