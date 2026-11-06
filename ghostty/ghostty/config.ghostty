@@ -1,5 +1,5 @@
 # Appearance
-theme = Rose Pine
+theme = Vesper
 config-file = theme.ghostty
 background-blur = true
 background-opacity = 0.85
