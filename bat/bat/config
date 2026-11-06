@@ -1,4 +1,4 @@
---theme="Catppuccin Macchiato"
+--theme="ansi"
 --style="numbers,changes,header,grid"
 --paging=auto
 --pager="less -FRX"

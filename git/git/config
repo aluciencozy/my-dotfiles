@@ -1,5 +1,5 @@
 [include]
-	path = themes/catppuccin.gitconfig
+	path = themes/shared.gitconfig
 
 [core]
 	editor = nvim
@@ -13,7 +13,7 @@
 	defaultBranch = main
 
 [delta]
-	features = catppuccin-macchiato
+	features = shared
 	dark = true
 	decorations = true
 	hyperlinks = true

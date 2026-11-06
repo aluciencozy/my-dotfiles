@@ -1,0 +1,13 @@
+# Vesper UI colors, matching the Neovim port.
+palette = 0=#161616
+palette = 1=#ff8080
+palette = 2=#99ffe4
+palette = 3=#ffc799
+palette = 4=#b9aeda
+palette = 5=#ffcfa8
+palette = 6=#99ffe4
+palette = 7=#cccccc
+palette = 8=#505050
+background = #101010
+foreground = #cccccc
+selection-background = #343434

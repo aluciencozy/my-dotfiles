@@ -9,7 +9,7 @@ The setup helpers are small, safe to rerun, and do not adopt or overwrite existi
 Start with a working CachyOS/Arch installation, network access, `sudo`, and Git.
 
 ```sh
-sudo pacman -Syu --needed base-devel git stow zsh nvm
+sudo pacman -Syu --needed base-devel git stow zsh nvm python
 git clone https://github.com/aluciencozy/my-dotfiles.git ~/github/dotfiles
 cd ~/github/dotfiles
 ```
@@ -86,10 +86,42 @@ Manual equivalent:
 stow --no-folding atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk \
   hypr kvantum lazydocker lazygit nvim pacseek rofi starship swaync \
   television tmux waybar wiremix yazi
-stow --no-folding --target="$HOME" gtk-theme zsh
+stow --no-folding --target="$HOME" gtk-theme theme zsh
 ```
 
 The current cursor is Bibata.
+
+## Shared CLI theme
+
+One command selects the theme for Neovim, tmux, Ghostty, LazyGit, Starship,
+btop, Yazi's interface, and Git/Delta. Bat uses the terminal's ANSI palette.
+The `theme` Stow package installs the command into `~/.local/bin`.
+
+```sh
+theme rose-pine
+theme rose-pine-moon
+theme catppuccin-mocha
+theme vesper
+theme  # show the current selection and available themes
+```
+
+Regular Rosé Pine is selected initially. Selection is stored in
+`~/.config/dotfiles-theme/current`. Palette definitions live beside it in
+`palettes/`; the command generates app-specific colors, so do not manually edit
+generated theme files. Running the command updates the tracked dotfiles too.
+Use the command rather than editing `current` alone, so every app is updated.
+
+tmux and attached terminal palettes refresh immediately. Neovim switches when
+you return to it (restart existing Neovim instances once after installing this
+integration). New prompts use the new palette. Reopen LazyGit, btop, and Yazi
+if they do not reload their colors automatically. Other Ghostty windows can be
+reloaded with Ctrl+Shift+comma. Transparency settings are preserved.
+
+This does not change GTK, Hyprland, Waybar, browser settings, or every arbitrary
+CLI application's private theme. Yazi preview syntax uses its own defaults;
+FZF and other ANSI-colored tools follow the terminal palette.
+
+Tests: `python3 -B -m unittest discover -s setup -p test_theme.py`.
 
 ## Desktop and laptop monitors
 

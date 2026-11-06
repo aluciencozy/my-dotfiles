@@ -16,28 +16,16 @@ gui:
   filterMode: fuzzy
   fileTreeSortOrder: foldersFirst
   theme:
-    activeBorderColor:
-      - "#b7bdf8"
-      - bold
-    inactiveBorderColor:
-      - "#5b6078"
-    searchingActiveBorderColor:
-      - "#eed49f"
-      - bold
-    optionsTextColor:
-      - "#8aadf4"
-    selectedLineBgColor:
-      - "#363a4f"
-    inactiveViewSelectedLineBgColor:
-      - "#494d64"
-    cherryPickedCommitBgColor:
-      - "#494d64"
-    cherryPickedCommitFgColor:
-      - "#b7bdf8"
-    unstagedChangesColor:
-      - "#ed8796"
-    defaultFgColor:
-      - "#cad3f5"
+    activeBorderColor: ["#c4a7e7", "bold"]
+    inactiveBorderColor: ["#6e6a86"]
+    searchingActiveBorderColor: ["#f6c177", "bold"]
+    optionsTextColor: ["#9ccfd8"]
+    selectedLineBgColor: ["#26233a"]
+    inactiveViewSelectedLineBgColor: ["#403d52"]
+    cherryPickedCommitBgColor: ["#403d52"]
+    cherryPickedCommitFgColor: ["#c4a7e7"]
+    unstagedChangesColor: ["#eb6f92"]
+    defaultFgColor: ["#e0def4"]
 git:
   diffRenderers:
     - colorArg: always

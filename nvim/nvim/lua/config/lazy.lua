@@ -13,7 +13,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "vesper",
+        colorscheme = require("config.theme").colorscheme(),
       },
     },
     {
@@ -48,3 +48,5 @@ require("lazy").setup({
     },
   },
 })
+
+require("config.theme").setup()

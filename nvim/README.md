@@ -3,6 +3,10 @@
 LazyVim with Snacks search, LazyGit, Yazi, and language support. Run tests,
 debuggers, and AI tools in the terminal.
 
+Use `theme rose-pine`, `theme rose-pine-moon`, `theme catppuccin-mocha`, or
+`theme vesper` in your shell to switch the shared CLI theme. Neovim refreshes
+on focus and stays transparent. All three theme plugins remain installed.
+
 Shortcuts are listed in [keymaps.md](keymaps.md), one per line. Space is the
 leader key. File and text searches use the project root, falling back to the
 current directory. The list covers global shortcuts and language-specific

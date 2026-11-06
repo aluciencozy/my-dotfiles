@@ -10,7 +10,7 @@ readonly -a config_packages=(
   hypr kvantum lazydocker lazygit nvim pacseek rofi starship swaync
   television tmux waybar wiremix yazi
 )
-readonly -a home_packages=(gtk-theme zsh)
+readonly -a home_packages=(gtk-theme theme zsh)
 
 stow_args=(--dir="${repo_dir}" --no-folding)
 dry_run=false

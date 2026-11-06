@@ -1,0 +1,13 @@
+# Palette from Ghostty's bundled Rose Pine theme.
+palette = 0=#26233a
+palette = 1=#eb6f92
+palette = 2=#31748f
+palette = 3=#f6c177
+palette = 4=#9ccfd8
+palette = 5=#c4a7e7
+palette = 6=#ebbcba
+palette = 7=#e0def4
+palette = 8=#6e6a86
+background = #191724
+foreground = #e0def4
+selection-background = #403d52
