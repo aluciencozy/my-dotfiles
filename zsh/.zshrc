@@ -176,17 +176,23 @@ eval "$(starship init zsh)"
 # ---------------------------------------------------------
 
 # Work around Sceptre monitor brightness bug by toggling refresh rate.
-# The current position, scale, resolution, and refresh rate are preserved.
+# Works on Hyprland and KDE Plasma Wayland.
 monitor-fix() {
     local output="HDMI-A-1"
-    local width height x y scale refresh
 
-    read -r width height x y scale refresh < <(
-        hyprctl monitors -j | python3 -c '
+    # -------------------------
+    # Hyprland
+    # -------------------------
+    if [[ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
+        local width height x y scale refresh
+
+        read -r width height x y scale refresh < <(
+            hyprctl monitors -j | python3 -c '
 import json
 import sys
 
 name = "HDMI-A-1"
+
 monitor = next(
     (m for m in json.load(sys.stdin) if m["name"] == name),
     None,
@@ -204,31 +210,94 @@ print(
     monitor["refreshRate"],
 )
 '
-    )
+        )
 
-    if [[ -z "$width" ]]; then
-        echo "monitor-fix: $output not found"
-        return 1
+        if [[ -z "$width" ]]; then
+            echo "monitor-fix: $output not found"
+            return 1
+        fi
+
+        local resolution="${width}x${height}"
+        local position="${x}x${y}"
+
+        # Drop to 144 Hz.
+        hyprctl eval "hl.monitor({
+            output = \"$output\",
+            mode = \"${resolution}@144\",
+            position = \"$position\",
+            scale = $scale
+        })" >/dev/null
+
+        sleep 0.5
+
+        # Restore original refresh rate.
+        hyprctl eval "hl.monitor({
+            output = \"$output\",
+            mode = \"${resolution}@${refresh}\",
+            position = \"$position\",
+            scale = $scale
+        })" >/dev/null
+
+        return
     fi
 
-    local resolution="${width}x${height}"
-    local position="${x}x${y}"
+    # -------------------------
+    # KDE Plasma Wayland
+    # -------------------------
+    if [[ "$XDG_CURRENT_DESKTOP" == *KDE* || "$XDG_CURRENT_DESKTOP" == *Plasma* ]]; then
+        local width height mode_id
 
-    # Temporarily drop to 144 Hz.
-    hyprctl eval "hl.monitor({
-        output = \"$output\",
-        mode = \"${resolution}@144\",
-        position = \"$position\",
-        scale = $scale
-    })" >/dev/null
+        read -r width height mode_id < <(
+            kscreen-doctor -j | python3 -c '
+import json
+import sys
 
-    sleep 0.5
+name = "HDMI-A-1"
+data = json.load(sys.stdin)
 
-    # Restore the refresh rate/configuration that was active before.
-    hyprctl eval "hl.monitor({
-        output = \"$output\",
-        mode = \"${resolution}@${refresh}\",
-        position = \"$position\",
-        scale = $scale
-    })" >/dev/null
+output = next(
+    (o for o in data["outputs"] if o["name"] == name),
+    None,
+)
+
+if output is None:
+    raise SystemExit(1)
+
+mode_id = str(output["currentModeId"])
+
+mode = next(
+    m for m in output["modes"]
+    if str(m["id"]) == mode_id
+)
+
+print(
+    mode["size"]["width"],
+    mode["size"]["height"],
+    mode_id,
+)
+'
+        )
+
+        if [[ -z "$width" ]]; then
+            echo "monitor-fix: $output not found"
+            return 1
+        fi
+
+        # Drop to 144 Hz.
+        kscreen-doctor \
+            "output.$output.mode.${width}x${height}@144" \
+            >/dev/null
+
+        sleep 0.5
+
+        # Restore the exact mode that was active before.
+        kscreen-doctor \
+            "output.$output.mode.$mode_id" \
+            >/dev/null
+
+        return
+    fi
+
+    echo "monitor-fix: unsupported desktop environment"
+    return 1
 }
