@@ -1,25 +1,12 @@
 local map = vim.keymap.set
 local o = vim.opt
 
-local lazy = require("lazy")
-
--- Lazy options
-map("n", "<leader>l", "<Nop>")
-map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
--- stylua: ignore start
-map("n", "<leader>ld", function() vim.fn.system({ "xdg-open", "https://lazyvim.org" }) end, { desc = "LazyVim Docs" })
-map("n", "<leader>lr", function() vim.fn.system({ "xdg-open", "https://github.com/LazyVim/LazyVim" }) end, { desc = "LazyVim Repo" })
-map("n", "<leader>lx", "<cmd>LazyExtras<cr>", { desc = "Extras" })
-map("n", "<leader>lc", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
-
-map("n", "<leader>lu", function() lazy.update() end, { desc = "Lazy Update" })
-map("n", "<leader>lC", function() lazy.check() end, { desc = "Lazy Check" })
-map("n", "<leader>ls", function() lazy.sync() end, { desc = "Lazy Sync" })
--- stylua: ignore end
-
 -- Disable LazyVim bindings
-map("n", "<leader>L", "<Nop>")
 map("n", "<leader>fT", "<Nop>")
+pcall(vim.keymap.del, "n", "<leader>l")
+pcall(vim.keymap.del, "n", "<leader>L")
+pcall(vim.keymap.del, "n", "<leader>dpp")
+pcall(vim.keymap.del, "n", "<leader>dph")
 
 -- Identation
 map("n", "<", "<<", { desc = "Deindent" })
@@ -34,11 +21,6 @@ map("n", "-", "<C-x>")
 
 -- Custom Ctrl+A
 map("n", "<C-a>", "ggVG", { desc = "Select all " })
-
--- Buffers
-map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "First Buffer" })
-map("n", "<leader>ba", "<cmd>blast<cr>", { desc = "Last Buffer" })
-map("n", "<M-b>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Toggle statusline
 map("n", "<leader>uS", function()
@@ -76,9 +58,6 @@ map("n", "<leader>cir", "<cmd>LazyRoot<cr>", { desc = "Root" })
 -- Copy whole text to clipboard
 map("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole Text to Clipboard", silent = true })
 
--- Select all text
-map("n", "<C-e>", "gg<S-V>G", { desc = "Select all Text", silent = true, noremap = true })
-
 -- Delete and change without yanking
 map({ "n", "x" }, "<A-d>", '"_d', { desc = "Delete Without Yanking" })
 map({ "n", "x" }, "<A-c>", '"_c', { desc = "Change Without Yanking" })
@@ -111,10 +90,6 @@ if not LazyVim.has("floaterm.nvim") or not LazyVim.has("toggleterm.nvim") then
   map("t", [[<c-\>]], "<cmd>close<cr>", { desc = "Hide Terminal" })
 end
 
--- Windows Split
-map("n", "<leader>_", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "<leader>\\", "<C-W>v", { desc = "Split Window Right", remap = true })
-
 -- Center when scrolling
 if Snacks.scroll.enabled then
   map("n", "<C-d>", function()
@@ -137,21 +112,12 @@ end
 -- Select first option for spelling
 map("n", "<leader>S", "1z=", { desc = "Spelling (First Option)" })
 
--- HJKL maps for arrow keys
-map("n", "<C-left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
-
 map("n", "<S-down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<S-up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 map("i", "<S-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<S-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<S-down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<S-up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
-
-map("n", "<S-left>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-right>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 map("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })

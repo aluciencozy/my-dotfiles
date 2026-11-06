@@ -3,6 +3,16 @@ local package_prefix = "<leader>pr"
 return {
   { import = "lazyvim.plugins.extras.lang.rust" },
   {
+    "mrcjkb/rustaceanvim",
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<leader>cR", "<cmd>RustLsp codeAction<cr>", { desc = "Code Action", buffer = bufnr })
+        end,
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     opts = function(_, opts)
       opts.formatters_by_ft.toml = opts.formatters_by_ft.toml or {}

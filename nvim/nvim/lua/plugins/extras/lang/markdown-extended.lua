@@ -1,5 +1,3 @@
-local filetype = { "markdown", "text", "tex", "plaintex", "norg" }
-
 return {
   { import = "lazyvim.plugins.extras.lang.markdown" },
   {
@@ -10,19 +8,6 @@ return {
           prepend_args = { "--config", os.getenv("HOME") .. "/.config/nvim/rules/.markdownlint-cli2.yaml", "--" },
         },
       },
-    },
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {
-      render_modes = { "n", "c", "t" },
-      checkbox = {
-        enabled = true,
-      },
-      heading = {
-        atx = false,
-      },
-      preset = "obsidian",
     },
   },
   {

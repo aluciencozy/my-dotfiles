@@ -155,24 +155,13 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>fz", function() Snacks.picker.zoxide({
-        finder = "files_zoxide",
-        format = "file",
-        -- confirm = "load_session" -- Disable loading session by default.
-        confirm = function(picker, item)
-          picker:close()
-          if item then
-            Snacks.picker.files({ cwd = item.text })
-          end
-          local dir = item.file
-          vim.fn.chdir(dir)
-        end,
-        win = {
-          preview = {
-            minimal = true,
-          },
-        },
-      }) end, desc = "Zoxide" },
+      -- Keep Space Space for files and Space / for text, both at the project root.
+      { "<leader>ff", false },
+      { "<leader>fF", false },
+      { "<leader>sg", false },
+      { "<leader>sG", false },
+      { "<leader>sW", false, mode = { "n", "x" } },
+      { "<leader>dps", false },
       { "<leader>gb", function() Snacks.picker.git_log_line() end, desc = "Blame Line" },
       { "<leader>cil", function() Snacks.picker.lsp_config() end, desc = "Lsp" },
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notifications" },

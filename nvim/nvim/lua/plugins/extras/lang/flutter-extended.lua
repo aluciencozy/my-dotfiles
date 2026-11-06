@@ -16,17 +16,16 @@ return {
   {
     "nvim-flutter/flutter-tools.nvim",
     ft = "dart",
-    dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = function()
       return {
-        debugger = { enabled = true },
+        debugger = { enabled = false },
         lsp = {
           capabilities = require("blink.cmp").get_lsp_capabilities(),
         },
       }
     end,
     config = function(_, opts)
-      -- Flutter Tools initializes DAP even when debugging is disabled.
       if vim.fn.executable("flutter") == 0 then
         vim.notify("Install the Flutter SDK and add flutter to PATH, then restart Neovim.", vim.log.levels.WARN)
         return

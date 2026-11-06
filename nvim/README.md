@@ -1,61 +1,21 @@
-# Flutter in Neovim
+# Neovim
 
-The Flutter extra provides Dart completion, diagnostics, formatting on save,
-Treesitter highlighting, tests through neotest, and Flutter Tools integrated with
-the existing DAP debugger. Flutter Tools manages the Dart language server;
-do not enable a second `dartls` instance.
+LazyVim with Snacks search, LazyGit, Yazi, and language support. Run tests,
+debuggers, and AI tools in the terminal.
 
-## Install the SDK
+Shortcuts are listed in [keymaps.md](keymaps.md), one per line. Space is the
+leader key. File and text searches use the project root, falling back to the
+current directory. The list covers global shortcuts and language-specific
+shortcuts; picker and completion controls are marked separately. This is not a
+full list of built-in Vim commands or plugin-internal menus.
 
-Install the stable Flutter SDK using the
-[official Linux instructions](https://docs.flutter.dev/install/manual).
-Use a user-writable directory (for example `~/develop/flutter`), and add its
-`bin` directory to your shell's PATH:
+After changing plugins, restart Neovim and run `:Lazy clean` to remove unused
+downloads. Use `:Lazy` to manage plugins, `:LazyExtras` for extras, and `:Mason`
+to manage language tools.
 
-```sh
-export PATH="$HOME/develop/flutter/bin:$PATH"
-```
+For Flutter, install the [SDK](https://docs.flutter.dev/install/manual), add its
+`bin` directory to PATH, and run `flutter doctor -v`. Flutter Tools manages the
+Dart language server; do not start another `dartls`. Use `:FlutterPubGet` for
+dependencies and `:FlutterLspRestart` to restart the server.
 
-Persist that line in `~/.zshrc` if you use that location. Flutter includes Dart;
-no separate Dart or Mason language-server installation is needed.
-Restart your terminal, then check:
-
-```sh
-flutter --version
-dart --version
-flutter doctor -v
-flutter devices
-```
-
-Restart Neovim after installing the SDK. Flutter Tools starts only when `flutter`
-is on PATH; before that, opening Dart files shows an SDK installation reminder.
-
-Install the platform tooling reported by `flutter doctor` for your target.
-Android needs the Android SDK and a device or emulator; after installing its
-command-line tools, accept licenses with `flutter doctor --android-licenses`.
-iOS builds require macOS and Xcode, not this Linux machine.
-
-## Use it
-
-Restart Neovim and let Lazy install the new plugins (or run `:Lazy install`).
-Open a Dart file inside a Flutter project with a `pubspec.yaml`.
-
-| Key | Action |
-| --- | --- |
-| `<leader>cfc` | All Flutter commands |
-| `<leader>cfr` | Run with debugging |
-| `<leader>cfd` | Select a device |
-| `<leader>cfe` | Launch an emulator |
-| `<leader>cfh` | Hot reload |
-| `<leader>cfR` | Hot restart |
-| `<leader>cfq` | Stop the app |
-| `<leader>cfo` | Toggle widget outline |
-| `<leader>cfl` | Toggle logs |
-
-Use your existing `<leader>d` mappings for breakpoints and stepping, and
-`<leader>t` mappings for tests. `:FlutterPubGet` fetches project dependencies.
-`:FlutterLspRestart` restarts the Dart language server.
-
-For a smoke test, run `flutter create flutter_smoke`, open
-`flutter_smoke/lib/main.dart`, select a device, and run the app. Check completion,
-formatting on save, a breakpoint, hot reload, and `:LspInfo` (one Dart client).
+Next: find a more minimal replacement for Yazi.

@@ -6,11 +6,11 @@ vim.keymap.set({ "n", "x" }, "gk", [[?^#\+ .*<CR>]], { desc = "Prev Heading", bu
 -- Bold selected text
 vim.keymap.set("n", "<C-b>", function()
   vim.cmd("normal viw")
-  vim.cmd("normal 2gsa*")
-end, { desc = "Bold Selection" })
+  vim.cmd("normal 2sa*")
+end, { desc = "Bold Selection", buffer = true })
 vim.keymap.set("v", "<C-b>", function()
-  vim.cmd("normal 2gsa*")
-end, { desc = "Bold Selection" })
+  vim.cmd("normal 2sa*")
+end, { desc = "Bold Selection", buffer = true })
 
 -- stylua: ignore start
 if LazyVim.has("markdowny.nvim") then

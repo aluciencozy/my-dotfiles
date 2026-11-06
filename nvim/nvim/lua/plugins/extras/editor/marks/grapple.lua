@@ -9,7 +9,6 @@ end
 
 table.insert(keys, { prefix .. "a", "<cmd>Grapple tag<CR>", desc = "Add Mark" })
 table.insert(keys, { prefix .. "m", "<cmd>Grapple toggle_tags<CR>", desc = "Marks" })
-table.insert(keys, { prefix .. "t", "<cmd>Telescope grapple tags<CR>", desc = "Marks (Telescope)" })
 table.insert(keys, { prefix .. "C", "<cmd>Grapple reset<CR>", desc = "Clear all Marks" })
 table.insert(keys, { prefix .. "c", "<cmd>Grapple untag<CR>", desc = "Clear Current Mark" })
 table.insert(keys, { prefix .. "s", "<cmd>Grapple toggle_scopes<CR>", desc = "Scopes" })
@@ -34,9 +33,6 @@ return {
           footer = "",
         },
       })
-      LazyVim.on_load("telescope.nvim", function()
-        require("telescope").load_extension("grapple")
-      end)
     end,
   },
   {
