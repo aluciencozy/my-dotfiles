@@ -1,0 +1,145 @@
+{
+  "id": "root",
+  "type": "row",
+  "children": [
+    {
+      "id": "sidebar",
+      "type": "column",
+      "size": { "px": 268 },
+      "min": 44,
+      "max": 480,
+      "background": "chrome",
+      "children": [
+        {
+          "id": "brand",
+          "type": "block",
+          "size": { "px": 46 },
+          "window_drag": true,
+          "content": { "mod": "workspace-chrome" }
+        },
+        {
+          "id": "sidebar-lists",
+          "type": "block",
+          "size": { "weight": 1 },
+          "min": 90,
+          "content": { "mod": "alex-sidebar" }
+        },
+        {
+          "id": "usage",
+          "type": "block",
+          "size": { "px": 34 },
+          "min": 34,
+          "content": { "mod": "alex-usage" }
+        },
+        {
+          "id": "sidebar-footer",
+          "type": "block",
+          "size": { "px": 97 },
+          "content": {
+            "mod": "alex-sidebar",
+            "props": { "footer": true }
+          }
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "type": "column",
+      "resizable": false,
+      "children": [
+        {
+          "id": "tabs",
+          "type": "block",
+          "size": { "px": 42 },
+          "window_drag": true,
+          "content": { "mod": "alex-tabs" }
+        },
+        {
+          "id": "work-body",
+          "type": "row",
+          "padding": 8,
+          "gap": 8,
+          "children": [
+            {
+              "id": "main",
+              "type": "block",
+              "content": {
+                "tab": "active",
+                "pane": {
+                  "gap": 8,
+                  "radius": 10,
+                  "lone": true,
+                  "background": "background",
+                  "border": { "width": 1, "color": "border" },
+                  "focus": { "width": 1, "color": "accent" },
+                  "header": {
+                    "content": { "mod": "pane" },
+                    "height": 30,
+                    "position": "top",
+                    "reveal": "always"
+                  }
+                }
+              }
+            },
+            {
+              "id": "panel",
+              "type": "column",
+              "size": { "px": 368 },
+              "min": 280,
+              "max": 900,
+              "hidden": true,
+              "children": [
+                {
+                  "id": "panel-body",
+                  "type": "stack",
+                  "active": "files",
+                  "children": [
+                    { "id": "files", "type": "block", "content": { "mod": "files" } },
+                    { "id": "changes", "type": "block", "content": { "mod": "changes" } },
+                    { "id": "issues", "type": "block", "content": { "mod": "alex-issues" } },
+                    { "id": "skills", "type": "block", "content": { "mod": "alex-skills" } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "type": "block",
+          "size": { "px": 28 },
+          "content": { "mod": "workspace-status" }
+        }
+      ]
+    }
+  ],
+  "background": "canvas",
+  "theme": "graphite",
+  "colors": {
+    "canvas": "#0b0d10",
+    "chrome": "#101317",
+    "background": "#11151a",
+    "surface": "#151a20",
+    "popover": "#171c23",
+    "raised": "#1c222b",
+    "hover": "#232a34",
+    "selected": "#1b2635",
+    "border": "#282f39",
+    "input": "#394351",
+    "foreground": "#e7ebf2",
+    "muted": "#aab3c0",
+    "dim": "#768190",
+    "accent": "#82b8f4",
+    "accent_foreground": "#0b1119",
+    "working": "#70b8ff",
+    "blocked": "#f27d82",
+    "done": "#76c99b",
+    "idle": "#778393"
+  },
+  "font_weight": 400,
+  "terminal_padding": [14, 12],
+  "divider": { "width": 1, "color": "border" },
+  "titlebar": "none",
+  "traffic_lights": [12, 16],
+  "preview": "layouts/alex-workspace.svg"
+}

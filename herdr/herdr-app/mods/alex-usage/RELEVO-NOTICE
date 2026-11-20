@@ -1,0 +1,18 @@
+herdr-relevo
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+mods/relevo-agents is derived from the `agents` mod that ships with Herdr
+(Apache License 2.0). Changes: account and ticket chips on each agent, read
+from the agent's terminal labels and the Relevo mod's shared setup.
+
+mods/relevo-files is derived from the `files` mod that ships with Herdr
+(Apache License 2.0). Changes: a right-click menu on files and folders (New
+file, New folder, Rename, Move to Trash, Reveal in Finder, Copy path, Copy
+relative path), editing with ⌘S, and a file view in its own pane.
+
+mods/relevo-tabs is derived from the `tabs` mod that ships with Herdr
+(Apache License 2.0). Changes: it no longer remembers the side panel per
+space, so switching spaces leaves the panel open or closed.
+
+mods/relevo/spinner.svg comes from Herdr's `workspace-chrome` mod
+(Apache License 2.0), unchanged.

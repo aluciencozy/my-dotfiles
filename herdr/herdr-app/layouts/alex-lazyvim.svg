@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880">
+  <rect width="1440" height="880" fill="#191c2c"/>
+  <rect width="268" height="880" fill="#1e2235"/>
+  <path d="M268 0v880M0 46h268M0 683h268M0 783h268M268 42h1172M268 852h1172" stroke="#303750"/>
+
+  <rect x="16" y="13" width="20" height="20" rx="3" fill="#84a8ff"/>
+  <path d="M21 19h10M21 23h7M21 27h9" stroke="#191c2c" stroke-width="1.6"/>
+  <text x="45" y="28" fill="#c8d3f5" font-family="monospace" font-size="14" font-weight="600">Herdr</text>
+  <text x="201" y="28" fill="#727fae" font-family="monospace" font-size="9">WORKSPACE</text>
+
+  <rect x="12" y="55" width="52" height="24" fill="#353e5d"/>
+  <text x="24" y="71" fill="#c8d3f5" font-family="monospace" font-size="11">All</text>
+  <text x="78" y="71" fill="#9aa5ce" font-family="monospace" font-size="11">Agents</text>
+  <circle cx="24" cy="96" r="4" fill="#84a8ff"/>
+  <text x="36" y="100" fill="#9aa5ce" font-family="monospace" font-size="11">This computer</text>
+  <text x="238" y="100" fill="#727fae" font-family="monospace" font-size="16">+</text>
+  <rect x="10" y="108" width="248" height="30" fill="#303c69"/>
+  <path d="M20 119l5-5 5 5v9H20z" fill="none" stroke="#84a8ff"/>
+  <text x="38" y="128" fill="#c8d3f5" font-family="monospace" font-size="12">Existing workspace</text>
+  <text x="184" y="128" fill="#727fae" font-family="monospace" font-size="9">branch</text>
+  <circle cx="27" cy="154" r="5" fill="none" stroke="#727fae"/>
+  <rect x="41" y="147" width="15" height="15" rx="2" fill="#353e5d"/>
+  <text x="63" y="157" fill="#c8d3f5" font-family="monospace" font-size="11">Codex · session title</text>
+  <path d="M43 170v26m0-17h10" stroke="#454d6c" stroke-width="1.5"/>
+  <circle cx="61" cy="179" r="3.5" fill="none" stroke="#727fae"/>
+  <text x="72" y="183" fill="#9aa5ce" font-family="monospace" font-size="10">Core child terminal</text>
+  <circle cx="27" cy="211" r="5" fill="none" stroke="#727fae"/>
+  <rect x="41" y="204" width="15" height="15" rx="2" fill="#353e5d"/>
+  <text x="63" y="214" fill="#c8d3f5" font-family="monospace" font-size="11">OpenCode · session</text>
+  <text x="15" y="250" fill="#727fae" font-family="monospace" font-size="9">LIVE SPACES · REAL TERMINALS</text>
+  <text x="15" y="269" fill="#727fae" font-family="monospace" font-size="10">Details come from Herdr and existing mods.</text>
+
+  <text x="14" y="704" fill="#727fae" font-family="monospace" font-size="10" letter-spacing=".6">LOCAL USAGE</text>
+  <text x="14" y="727" fill="#9aa5ce" font-family="monospace" font-size="11">Codex account</text>
+  <text x="14" y="744" fill="#727fae" font-family="monospace" font-size="9">Local snapshot when available</text>
+  <text x="14" y="765" fill="#727fae" font-family="monospace" font-size="9">No OpenCode quota inferred</text>
+  <path d="M13 812h14m-7-7v14M15 837h12" stroke="#9aa5ce" stroke-width="1.4"/>
+  <text x="38" y="816" fill="#9aa5ce" font-family="monospace" font-size="11">New session</text>
+  <text x="38" y="841" fill="#9aa5ce" font-family="monospace" font-size="11">Settings</text>
+  <circle cx="21" cy="862" r="6" fill="none" stroke="#9aa5ce"/>
+  <path d="M21 858v8m-4-4h8" stroke="#9aa5ce"/>
+  <text x="38" y="866" fill="#9aa5ce" font-family="monospace" font-size="11">Options</text>
+
+  <rect x="282" y="7" width="154" height="28" fill="#353e5d"/>
+  <rect x="282" y="7" width="3" height="28" fill="#84a8ff"/>
+  <circle cx="296" cy="21" r="4" fill="#9ece6a"/>
+  <text x="307" y="25" fill="#c8d3f5" font-family="monospace" font-size="11">Active tab</text>
+  <text x="454" y="25" fill="#727fae" font-family="monospace" font-size="11">Other tabs…</text>
+  <text x="1062" y="25" fill="#9aa5ce" font-family="monospace" font-size="11">＋</text>
+  <path d="M1080 9v24" stroke="#303750"/>
+  <text x="1095" y="25" fill="#c8d3f5" font-family="monospace" font-size="10">Files</text>
+  <text x="1170" y="25" fill="#9aa5ce" font-family="monospace" font-size="10">Changes</text>
+  <text x="1260" y="25" fill="#9aa5ce" font-family="monospace" font-size="10">Issues</text>
+  <text x="1330" y="25" fill="#9aa5ce" font-family="monospace" font-size="10">Skills</text>
+
+  <rect x="272" y="46" width="1164" height="802" rx="2" fill="#22263b" stroke="#84a8ff"/>
+  <path d="M273 72h1162" stroke="#303750"/>
+  <rect x="284" y="55" width="3" height="12" fill="#84a8ff"/>
+  <circle cx="296" cy="61" r="4" fill="#84a8ff"/>
+  <text x="307" y="65" fill="#c8d3f5" font-family="monospace" font-size="11">Active terminal</text>
+  <text x="426" y="65" fill="#727fae" font-family="monospace" font-size="10">folder › project › session</text>
+  <text x="302" y="116" fill="#9aa5ce" font-family="monospace" font-size="13">$ Terminal content remains native to Codex, OpenCode or shell.</text>
+  <text x="302" y="140" fill="#727fae" font-family="monospace" font-size="11">Thin pane frame · blue focus outline · compact breadcrumb header</text>
+
+  <circle cx="286" cy="866" r="4" fill="#84a8ff"/>
+  <text x="299" y="870" fill="#9aa5ce" font-family="monospace" font-size="10">This computer</text>
+  <text x="1058" y="870" fill="#727fae" font-family="monospace" font-size="9">AGENTS · LIVE STATUS</text>
+  <text x="1363" y="870" fill="#84a8ff" font-family="monospace" font-size="9">COMMANDS</text>
+</svg>

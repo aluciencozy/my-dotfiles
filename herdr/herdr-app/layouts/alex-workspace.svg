@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880">
+  <rect width="1440" height="880" rx="12" fill="#0b0d10"/>
+  <rect width="268" height="880" fill="#101317"/>
+  <path d="M268 0v880M0 46h268M0 683h268M0 783h268M268 42h1172M268 852h1172" stroke="#282f39"/>
+
+  <!-- Brand strip: the live layout uses Herdr's draggable workspace-chrome mod. -->
+  <rect x="16" y="13" width="20" height="20" rx="5" fill="#82b8f4"/>
+  <path d="M21 19h10M21 23h7M21 27h9" stroke="#0b1119" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="45" y="28" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="14" font-weight="600">Herdr</text>
+  <text x="203" y="28" fill="#768190" font-family="Geist, sans-serif" font-size="10">ALEX</text>
+
+  <!-- Sidebar filter and illustrative hierarchy; all live rows come from Herdr state. -->
+  <rect x="12" y="55" width="52" height="24" rx="7" fill="#1c222b"/>
+  <text x="25" y="71" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="11">All</text>
+  <text x="78" y="71" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">Agents</text>
+  <circle cx="24" cy="96" r="4" fill="#82b8f4"/>
+  <text x="36" y="100" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">This computer</text>
+  <text x="238" y="100" fill="#768190" font-family="Geist, sans-serif" font-size="16">+</text>
+  <rect x="10" y="108" width="248" height="30" rx="7" fill="#1b2635"/>
+  <rect x="20" y="118" width="10" height="10" rx="2" fill="#82b8f4" opacity=".8"/>
+  <text x="38" y="128" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="12">Existing workspace</text>
+  <text x="184" y="128" fill="#768190" font-family="Geist Mono, monospace" font-size="9">branch</text>
+  <circle cx="27" cy="154" r="5" fill="none" stroke="#778393" stroke-width="1.3"/>
+  <rect x="41" y="147" width="15" height="15" rx="4" fill="#394351"/>
+  <text x="63" y="157" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="11">Codex · session title</text>
+  <path d="M43 170v26" stroke="#394351" stroke-width="1.5"/>
+  <path d="M43 179h10" stroke="#394351" stroke-width="1.5"/>
+  <circle cx="61" cy="179" r="3.5" fill="none" stroke="#778393" stroke-width="1.2"/>
+  <text x="72" y="183" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">Core child terminal</text>
+  <circle cx="27" cy="211" r="5" fill="none" stroke="#778393" stroke-width="1.3"/>
+  <rect x="41" y="204" width="15" height="15" rx="4" fill="#394351"/>
+  <text x="63" y="214" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="11">OpenCode · session title</text>
+  <text x="15" y="250" fill="#768190" font-family="Geist, sans-serif" font-size="9">ILLUSTRATIVE LABELS · NO INFERRED CONTEXT</text>
+  <text x="15" y="269" fill="#768190" font-family="Geist, sans-serif" font-size="10">Spaces, titles and children use live Herdr data.</text>
+
+  <!-- Local usage slot: values appear only when a source provides them. -->
+  <text x="14" y="704" fill="#768190" font-family="Geist, sans-serif" font-size="10" letter-spacing=".7">LOCAL USAGE</text>
+  <text x="14" y="727" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">Codex account</text>
+  <text x="14" y="744" fill="#768190" font-family="Geist, sans-serif" font-size="9">Shown only when verified locally</text>
+  <text x="14" y="765" fill="#768190" font-family="Geist, sans-serif" font-size="9">No OpenCode quota is implied</text>
+
+  <!-- Sidebar actions -->
+  <path d="M13 812h14m-7-7v14" stroke="#aab3c0" stroke-width="1.4" stroke-linecap="round"/>
+  <text x="38" y="816" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">New session</text>
+  <path d="M15 837h12" stroke="#aab3c0" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="21" cy="837" r="6" fill="none" stroke="#aab3c0" stroke-width="1.2"/>
+  <text x="38" y="841" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">Settings</text>
+  <circle cx="21" cy="862" r="6" fill="none" stroke="#aab3c0" stroke-width="1.2"/>
+  <path d="M21 858v8m-4-4h8" stroke="#aab3c0" stroke-width="1.1"/>
+  <text x="38" y="866" fill="#aab3c0" font-family="Geist, sans-serif" font-size="11">Options</text>
+
+  <!-- Tabs and unified panel controls. -->
+  <rect x="282" y="7" width="154" height="28" rx="8" fill="#1c222b"/>
+  <circle cx="296" cy="21" r="4" fill="#778393"/>
+  <text x="307" y="25" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="11">Active tab</text>
+  <text x="454" y="25" fill="#768190" font-family="Geist, sans-serif" font-size="11">Other tabs…</text>
+  <text x="1062" y="25" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">＋</text>
+  <rect x="1090" y="7" width="76" height="28" rx="7" fill="#101317"/>
+  <text x="1104" y="25" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="10">▤  Files</text>
+  <text x="1178" y="25" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">Changes</text>
+  <text x="1262" y="25" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">Issues</text>
+  <text x="1332" y="25" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">Skills</text>
+  <text x="1380" y="25" fill="#768190" font-family="Geist, sans-serif" font-size="12">−　□　×</text>
+
+  <!-- Default panel-hidden workspace. Terminal contents are always native. -->
+  <rect x="276" y="50" width="1156" height="794" rx="10" fill="#11151a" stroke="#394351"/>
+  <path d="M277 80h1154" stroke="#282f39"/>
+  <circle cx="293" cy="65" r="4" fill="#82b8f4"/>
+  <text x="306" y="69" fill="#e7ebf2" font-family="Geist, sans-serif" font-size="11">Active terminal</text>
+  <text x="408" y="69" fill="#768190" font-family="Geist Mono, monospace" font-size="10">Codex · OpenCode · shell render natively</text>
+  <text x="316" y="127" fill="#aab3c0" font-family="Geist Mono, monospace" font-size="13">Terminal content stays with the selected program.</text>
+  <text x="316" y="151" fill="#768190" font-family="Geist Mono, monospace" font-size="11">This shell shows Herdr's live spaces, titles, status and terminal hierarchy.</text>
+  <rect x="316" y="791" width="8" height="18" rx="2" fill="#82b8f4" opacity=".85"/>
+  <text x="316" y="824" fill="#768190" font-family="Geist Mono, monospace" font-size="10">Pane cards · rounded 10 · header 30</text>
+
+  <!-- Bottom status -->
+  <circle cx="286" cy="866" r="4" fill="#82b8f4"/>
+  <text x="299" y="870" fill="#aab3c0" font-family="Geist, sans-serif" font-size="10">This computer</text>
+  <text x="1363" y="870" fill="#768190" font-family="Geist, sans-serif" font-size="9">COMMANDS</text>
+</svg>

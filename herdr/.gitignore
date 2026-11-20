@@ -1,0 +1,10 @@
+/herdr-app/backgrounds/
+/herdr-app/wallpapers/
+/herdr-app/settings.json
+/herdr-app/programs.json
+/herdr-app/auth.json
+/herdr-app/.state/
+/herdr-app/cache/
+/herdr-app/shared/
+/herdr-app/view/
+/herdr-app/window/

@@ -6,7 +6,7 @@ readonly repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly config_target="${XDG_CONFIG_HOME:-${HOME}/.config}"
 
 readonly -a config_packages=(
-  atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk
+  atuin bat btop cava fastfetch fd fontconfig gh-dash ghostty git gtk herdr
   hypr kvantum lazydocker lazygit nvim pacseek rofi starship swaync
   television tmux waybar wiremix yazi
 )

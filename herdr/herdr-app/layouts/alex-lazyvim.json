@@ -1,0 +1,127 @@
+{
+  "id": "root",
+  "type": "row",
+  "children": [
+    {
+      "id": "sidebar",
+      "type": "column",
+      "size": { "px": 268 },
+      "min": 44,
+      "max": 480,
+      "background": "chrome",
+      "children": [
+        {
+          "id": "brand",
+          "type": "block",
+          "size": { "px": 46 },
+          "window_drag": true,
+          "content": { "mod": "workspace-chrome" }
+        },
+        {
+          "id": "sidebar-lists",
+          "type": "block",
+          "size": { "weight": 1 },
+          "min": 90,
+          "content": { "mod": "alex-sidebar" }
+        },
+        {
+          "id": "usage",
+          "type": "block",
+          "size": { "px": 34 },
+          "min": 34,
+          "content": { "mod": "alex-usage" }
+        },
+        {
+          "id": "sidebar-footer",
+          "type": "block",
+          "size": { "px": 97 },
+          "content": {
+            "mod": "alex-sidebar",
+            "props": { "footer": true }
+          }
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "type": "column",
+      "resizable": false,
+      "children": [
+        {
+          "id": "tabs",
+          "type": "block",
+          "size": { "px": 42 },
+          "window_drag": true,
+          "content": { "mod": "alex-tabs" }
+        },
+        {
+          "id": "work-body",
+          "type": "row",
+          "padding": 4,
+          "gap": 4,
+          "children": [
+            {
+              "id": "main",
+              "type": "block",
+              "content": {
+                "tab": "active",
+                "pane": {
+                  "gap": 4,
+                  "radius": 2,
+                  "lone": true,
+                  "background": "background",
+                  "border": { "width": 1, "color": "raised" },
+                  "focus": { "width": 1, "color": "accent" },
+                  "header": {
+                    "content": { "mod": "pane" },
+                    "height": 24,
+                    "position": "top",
+                    "reveal": "always"
+                  }
+                }
+              }
+            },
+            {
+              "id": "panel",
+              "type": "column",
+              "size": { "px": 368 },
+              "min": 280,
+              "max": 900,
+              "hidden": true,
+              "children": [
+                {
+                  "id": "panel-body",
+                  "type": "stack",
+                  "active": "files",
+                  "children": [
+                    { "id": "files", "type": "block", "content": { "mod": "files" } },
+                    { "id": "changes", "type": "block", "content": { "mod": "changes" } },
+                    { "id": "issues", "type": "block", "content": { "mod": "alex-issues" } },
+                    { "id": "skills", "type": "block", "content": { "mod": "alex-skills" } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "type": "block",
+          "size": { "px": 28 },
+          "content": { "mod": "workspace-status" }
+        }
+      ]
+    }
+  ],
+  "background": "canvas",
+  "theme": "alex-lazyvim",
+  "font": "JetBrainsMono Nerd Font Mono",
+  "font_size": 16,
+  "font_weight": 400,
+  "ui_font": "JetBrainsMono Nerd Font Mono",
+  "terminal_padding": [6, 8],
+  "divider": { "width": 1, "color": "border" },
+  "titlebar": "none",
+  "traffic_lights": [12, 16],
+  "preview": "layouts/alex-lazyvim.svg"
+}
